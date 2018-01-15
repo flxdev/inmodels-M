@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Index_Page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fff">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" media="all" href="css/app.css">
+  </head>
+  <body class="Index_Page">
+    <script type="text/javascript">
+      ! function(e)
+      {
+        function t(o)
+        {
+          if (n[o]) return n[o].exports;
+          var c = n[o] = {
+            exports:
+            {},
+            id: o,
+            loaded: !1
+          };
+          return e[o].call(c.exports, c, c.exports, t), c.loaded = !0, c.exports
+        }
+        var n = {};
+        return t.m = e, t.c = n, t.p = "/assets/", t(0)
+      }(
+      {
+        0: function(e, t, n)
+        {
+          n(18), n(19)
+        },
+        18: function(e, t)
+        {
+          ! function()
+          {
+            "use strict";
+
+            function e(e, t, n)
+            {
+              e.addEventListener ? e.addEventListener(t, n, !1) : e.attachEvent && e.attachEvent("on" + t, n)
+            }
+
+            function t(e)
+            {
+              return window.localStorage && localStorage.font_css_cache
+            }
+
+            function n()
+            {
+              if (window.localStorage && window.XMLHttpRequest)
+                if (t(c)) o(localStorage.font_css_cache);
+                else
+                {
+                  var e = new XMLHttpRequest;
+                  e.open("GET", c, !0), e.onreadystatechange = function()
+                  {
+                    4 === e.readyState && (o(e.responseText), localStorage.font_css_cache = e.responseText, localStorage.font_css_cache_file = c)
+                  }, e.send()
+                }
+              else
+              {
+                var n = document.createElement("link");
+                n.href = c, n.rel = "stylesheet", n.type = "text/css", document.getElementsByTagName("head")[0].appendChild(n), document.cookie = "font_css_cache"
+              }
+            }
+
+            function o(e)
+            {
+              var t = document.createElement("style");
+              t.setAttribute("type", "text/css"), t.styleSheet ? t.styleSheet.cssText = e : t.innerHTML = e, document.getElementsByTagName("head")[0].appendChild(t), window.onFontLoad && window.onFontLoad()
+            }
+            var c = window.fonts_href || "../css/font.css";
+            window.localStorage && localStorage.font_css_cache || document.cookie.indexOf("font_css_cache") > -1 ? n() : e(window, "load", n)
+          }()
+        },
+        19: function(e, t) {}
+      });
+
+    </script>
+    <div class="svg-defs-container" style="display: none;">
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="search" viewBox="0 0 22.2 22">
+          <style>
+            .seach-loop {
+              fill-rule: evenodd;
+              clip-rule: evenodd;
+              fill: none;
+              stroke: #484f42;
+              stroke-width: 1.5;
+              stroke-linecap: round;
+              stroke-linejoin: round;
+              stroke-miterlimit: 10
+            }
+
+            .search-stick {
+              fill: #484f42
+            }
+
+          </style>
+          <path class="seach-loop" d="M15.3 15l6.2 6.2" />
+          <path class="search-stick" d="M9.1 1.5c4.2 0 7.6 3.4 7.6 7.6 0 4.2-3.4 7.6-7.6 7.6-4.2 0-7.6-3.4-7.6-7.6 0-4.2 3.4-7.6 7.6-7.6m0-1.5C4.1 0 0 4.1 0 9.1c0 5.1 4.1 9.1 9.1 9.1s9.1-4.1 9.1-9.1S14.1 0 9.1 0z" />
+        </symbol>
+      </svg>
+    </div>
+    <!--BEGIN out-->
+    <div class="out Index_Page">
+      <div class="page__outer">
+        <div class="page__wrapper">
+          <header class="page__header--wrap">
+            <!--BEGIN header-->
+            <div class="header-inner"></div>
+            <!--END header-->
+          </header>
+          <main class="page__content">
+            <div class="block">
+              <div class="block__element">
+                <div class="block--modificator">
+                  <div id="app"></div>
+                </div>
+              </div>
+            </div>
+          </main>
+          <footer class="page__footer"></footer>
+        </div>
+      </div>
+    </div>
+    <!--END out-->
+    <div class="modals"></div>
+    <!--LOAD SCRIPTS-->
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>
