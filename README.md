@@ -1,1 +1,1 @@
-# front end template #
+# Inmodels mobile version #
