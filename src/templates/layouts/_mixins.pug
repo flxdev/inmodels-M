@@ -1,7 +1,63 @@
 mixin icon(name, modClass)
-  if modClass == undefined
-    - var modClass = ''
-  else
-    - var modClass = ' ' + modClass
-  svg(class=name + modClass)
-    use(xlink:href= '#' + name)
+	if modClass == undefined
+		- var modClass = ''
+	else
+		- var modClass = ' ' + modClass
+	svg(class=name + modClass)
+		use(xlink:href= '#' + name)
+
+mixin button(text, add_class)
+	if add_class == undefined
+		- var add_class = 'normal'
+	else
+		- var add_class = ' ' + add_class
+	button(class="bttn "+add_class)
+		span= text
+
+mixin share-block
+	.share-block.bg-darken
+		.share-block__title share
+		.share-block__link
+			a.link-social(href="#") Facebook
+			a.link-social(href="#") Twitter
+			a.link-social(href="#") Google +
+		.share-block__bttn
+			a(href="6-0-contacts.html").bttn.reverse
+									span business request
+
+mixin gallery-item(img, date, title, short, add_class)
+	a(href="/5-1-gallery-news.html" class='gallery-item '+ add_class)
+		.gallery-item__img
+			img(src="img/"+img, alt="gallery-item")
+		.gallery-item__info
+			.gallery-item__date= date
+			.gallery-item__desc
+				.gallery-item__title= title
+				.gallery-item__short= short
+
+mixin models-item(img, name, add_class)
+	if add_class == undefined
+		- var add_class = ''
+	else
+		- var add_class = ' ' + add_class
+	a(href="/3-0-inner.html" class='models-item '+ add_class)
+		.models-item__img
+			img(src="img/"+img, alt="models-item")
+		.models-item__info
+			.models-item__title= name
+
+mixin search-block
+	.search-block#search-block
+		.form-search
+			form
+				.input-item.search-field
+					input.input-field(type="search" id="searching")
+					label.input-label(for="searching")
+						span |
+						| Search by name
+					button.clear-bttn(type="reset")
+						span._icon
+							+icon('cross')
+			.search-not-found
+				p Sorry, but nothing was found for your query 
+					span.not-found-result "result"

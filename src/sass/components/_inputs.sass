@@ -1,0 +1,355 @@
+.form-block
+	width: 100%
+	max-width: 600px
+	&__title
+		width: 100%
+		margin-bottom: 50px
+		text-transform: uppercase
+		font-size: 12px
+		letter-spacing: 3px
+		color: $light-brend
+		font-weight: normal
+		&:not(:first-child)
+			margin-top: 50px
+		transform: translateY(40px)
+		opacity: 0
+		transition: opacity .3s .3s, transform .6s .3s
+		&.animate
+			opacity: 1
+			transform: none
+.form-search
+	width: 100%
+	max-width: 590px
+	margin: 0 auto
+	.search-not-found
+		opacity: 0
+		transform: translateY(20px)
+		transition: opacity .35s, transform .35s
+	&.not-found
+		.search-not-found
+			opacity: 1
+			transform: none
+.input
+	&-item
+		display: inline-block
+		width: 100%
+		font-size: 20px
+		line-height: 1
+		font-weight: 300
+		border-bottom: 1px solid $hover-color
+		position: relative
+		margin-bottom: 50px
+		transform: translateY(20px)
+		opacity: 0
+		transition: opacity .3s .3s, transform .4s .3s
+		&::before, &::after
+			content: ''
+			display: block
+			height: 2px
+			width: 0
+			position: absolute
+			bottom: -1px
+			left: 0
+			z-index: 2
+			background-color: $color
+			transition: width .4s ease-in
+		&::before
+			bottom: 0
+			z-index: 1
+			height: 100%
+			background-color: #f4f4f4
+		&:hover
+			&:after
+				width: 100%
+		&.focus
+			&::before, &::after
+				width: 100%
+		&.editing
+			&::before, &::after
+				width: 100%
+			label
+				font-size: 15px
+				transform: translate(-10px, -40px)
+				transition-delay: 0s
+		input[data-validation] + *
+			&:after
+				content: ' *'
+		textarea[data-validation] + *
+			&:after
+				content: ' *'
+		.input-field
+			padding: 12px 10px
+			position: relative
+			z-index: 5
+			background-color: inherit
+			font-weight: 300
+			&:focus ~ label
+				font-size: 15px
+				transform: translate(-10px, -40px)
+				transition-delay: 0s
+				
+		&.search-field
+			font-size: 26px
+			line-height: 1.54
+			font-weight: 300
+			.input-label
+				top: 0
+				left: 16px
+				color: $light-brend
+			&::before
+				display: none
+			label
+				span
+					font-size: 40px
+					line-height: 26px
+			.input-field
+				padding: 3px 50px 14px 20px
+				&::-webkit-search-cancel-button
+					display: none
+				&::-ms-clear
+					display: none
+				&:focus ~ label
+					opacity: 0
+					top: 0
+					left: 16px
+					visibility: hidden
+					transform: none
+					font-size: inherit
+					line-height: inherit
+					transition: font-size .15s 0s, transform .15s 0s, opacity .15s 0s ease-in, visibility 0s .2s
+			&.editing
+				&::after
+					width: 100%
+				label
+					opacity: 0
+					top: 0
+					left: 16px
+					visibility: hidden
+					transform: none
+					font-size: inherit
+					line-height: inherit
+					transition: font-size .15s 0s, transform .15s 0s, opacity .15s 0s ease-in, visibility 0s .2s
+		&.input-textarea
+			label
+				top: auto
+				bottom: 10px
+		&.c2
+			width: 45.83%
+		&.c4
+			width: 19%
+		&.input-disable
+			pointer-events: none
+			border-color: $disable-color
+			label
+				color: $disable-color
+		&.has-error
+			border-color: $error-color
+			&::before
+				background-color: $bg-error
+				width: 100%
+			&::after
+				background-color: $error-color
+		&.drop-item
+			border: none
+			cursor: pointer
+			.dz-message
+				font-size: 0
+			.drop-item__icon
+				display: inline-block
+				vertical-align: middle
+				width: 30px
+				height: 30px
+				position: absolute
+				top: 0
+				left: 0
+				color: $color
+				transform: none
+				+tr(transform .5s)
+				svg
+					stroke-width: 0
+					+tr(stroke-width .3s)
+			.input-label
+				display: inline-block
+				padding-left: 50px
+				position: relative
+				top: auto
+				left: auto
+				right: auto
+				bottom: auto
+				vertical-align: middle
+				cursor: pointer
+				font-size: 20px
+				line-height: 30px
+				font-weight: 300
+				color: $link-color
+			&::before, &::after, .dz-success-mark, .dz-error-mark, .dz-image
+				display: none
+			.dz-preview
+				position: relative
+				display: inline-block
+				padding-right: 12px
+				margin-top: 16px
+				margin-left: 55px
+				cursor: normal
+			.dz-details
+				display: flex
+				.dz-size
+					order: 1
+					color: $link-color
+					font-size: $font-size
+					line-height: 2
+					font-weight: normal
+					margin-right: 15px
+					strong
+						font-weight: inherit
+				.dz-filename
+					order: 0
+					color: $color
+					font-size: $font-size
+					line-height: 2
+					font-weight: normal
+					margin-right: 15px
+			.dz-remove
+				position: absolute
+				top: 8px
+				right: 0
+				cursor: pointer
+			.dz-error-message
+				font-size: 14px
+				font-weight: normal
+				line-height: 1.43
+				color: $error-color
+				margin-top: 15px
+			&.dz-started
+				cursor: default
+				.dz-message
+					cursor: pointer
+			&:hover
+				.drop-item__icon
+					transform: rotate(90deg)
+					svg
+						stroke-width: 1px
+		&.input-bttn
+			border: none
+			text-align: right
+			&::before, &::after
+				display: none
+		&.select
+			&::before
+				display: none
+			.select-link
+				display: inline-block
+				width: 100%
+				cursor: pointer
+				font-size: 20px
+				font-weight: 300
+				line-height: 1
+				color: $link-color
+				padding: 3px 10px 10px 10px
+				+tr(color .3s)
+				&:after
+					opacity: 1
+					+tr(opacity .3s)
+			.select-carret
+				display: block
+				width: 16px
+				height: 9px
+				position: absolute
+				top: 8px
+				right: 10px
+				font-size: 0
+				transform: rotate(180deg)
+				transition: transform .45s ease
+			.select-list
+				background-color: #F7F4F3
+				padding: 10px 0 20px
+				width: 100%
+				position: absolute
+				z-index: 7
+				left: 0
+				top: 34px
+				transform: translateX(-30%)
+				opacity: 0
+				visibility: hidden
+				transition: visibility 0s .5s,transform .45s ease, opacity .45s ease, box-shadow .2s
+				&__item
+					font-size: 20px
+					font-weight: 300
+					line-height: 2
+					cursor: pointer
+					padding: 0 10px
+					+tr(background-color .35s)
+					cursor: pointer
+					&:hover
+						background-color: $bg-brend
+					&:active
+						background-color: #eae1dd
+			&.focus
+				.select-carret
+					transform: none
+				.select-list
+					transform: none
+					opacity: 1
+					visibility: visible
+					box-shadow: 0 2px 10px 0 rgba(76, 70, 68, 0.15)
+					transition: visible 0s ,transform .6s ease-out, opacity .4s .1s ease-out, box-shadow .2s .5s
+			&.has-success
+				.select-link
+					color: $color
+					&:after
+						opacity: 0
+		&.animate
+			opacity: 1
+			transform: none
+		
+	&-label
+		cursor: text
+		font-size: inherit
+		line-height: inherit
+		position: absolute
+		bottom: 13px
+		left: 10px
+		color: $link-color
+		transform: none
+		transition: font-size .2s, transform .2s, opacity .2s ease-in, visibility 0s .2s
+		transition-delay: .6s
+		z-index: 6
+		visibility: visible
+	&-row
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+
+.input-item
+	.help-block
+		position: absolute
+		right: 0
+		top: -20px
+		z-index: 6
+		opacity: 1
+		transition: opacity .2s .7s
+		&.form-error
+			color: $error-color
+			font-size: $font-size
+			line-height: 1.33
+	&.focus, &.editing
+		.help-block
+			opacity: 0
+			transition-delay: 0s
+	&.select
+		.help-block
+			opacity: 0
+	&.input-textarea
+		.help-block
+			bottom: auto
+			top: 0
+	&.drop-item.focus
+		.help-block
+			opacity: 1
+.dz-remove
+	display: block
+	width: 11px
+	height: 11px
+	background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMi42MyAyMS45MiI+PHRpdGxlPmNyb3NzLVg8L3RpdGxlPjxwYXRoIGQ9Ik0xNSwxMy41OSw1LjEsMy42OWwtLjcxLjcxLDkuOSw5LjlMMy42OSwyNC45bC43MS43MUwxNSwxNSwyNS42MSwyNS42MWwuNzEtLjcxTDE1LjcxLDE0LjI5bDkuOS05LjktLjcxLS43MVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zLjY5IC0zLjY5KSIvPjwvc3ZnPg==)
+	background-repeat: no-repeat
+	background-position: (50%, 50%)
