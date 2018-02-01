@@ -7,7 +7,7 @@
 	&--fullpage
 		width: 100%
 		height: 100vh
-		// min-height: 100vh
+		max-height: 100%
 		background-color: $bg-brend
 	&--fullpage &__bg
 		width: 100%
@@ -59,62 +59,38 @@
 		z-index: 2
 		padding-bottom: 1px
 		width: 100%
-		max-width: 1360px
-		margin: 0 auto
-		padding: 0 80px
+		padding: 0 40px
 	&-grid
 		position: relative
 		z-index: 2
 		padding-bottom: 1px
-		width: 100%
-		height: 100%
-		display: flex
-		align-items: stretch
 		.aside
-			width: 42%
-			padding-left: 80px
-			text-align: right
-			&-content
-				width: 100%
-				min-height: 100vh
-				height: auto
-				position: relative
-				padding-top: 110px
-				padding-bottom: 50px
-				&-wrap
-					height: 100%
-					width: 100%
-					max-width: 400px
-					padding-right: 40px
-					margin-left: auto
-					margin-right: 0
-					text-align: left
-					box-sizing: border-box
-					position: relative
-				h1
-					margin-bottom: 35px
-				h4
-					margin-top: 45px
-					margin-bottom: 25px
-					color: $light-brend
-				.bttn
-					margin: 0
-					position: absolute
-					bottom: 40px
-					left: 0
-		.main
-			width: 58%
-			min-height: 100vh
-			padding-right: 25px
-			min-height: 100vh
-			padding-left: 100px
-			padding-top: 110px
-			padding-bottom: 100px
-			+vertical
+			width: 100%
+			padding-right: 40px
+			padding-left: 40px
 			text-align: left
 			&-content
-				display: inline-block
-				vertical-align: middle
+				width: 100%
+				position: relative
+				padding-bottom: 50px
+				h1
+					margin-bottom: 60px
+				h4
+					margin-top: 60px
+					margin-bottom: 18px
+					color: $light-brend
+				.bttn
+					margin-top: 40px
+					//margin-bottom: 40px
+		.main
+			width: 100%
+			padding-right: 40px
+			padding-left: 40px
+			padding-top: 60px
+			padding-bottom: 40px
+			text-align: left
+			&-content
+				width: 100%
 	&-inner
 		position: relative
 		z-index: 2

@@ -11,7 +11,6 @@ export default function initGallery() {
       masonry: {
         columnWidth: '.gallery-item'
       },
-      stamp: '.stamp-gallery',
       stagger: 30,
       transitionDuration: '0.6s',
       hiddenStyle: {
@@ -105,7 +104,7 @@ export default function initGallery() {
         if($('.' + ajaxPagerWrapClass).hasClass(ajaxPagerLazyClass)) {
           busy = false;
         }
-        $(document).on('click touchstart', '.' + ajaxPagerLinkClass, ajaxPagination);
+        $(document).off('click touchstart').on('click touchstart', '.' + ajaxPagerLinkClass, ajaxPagination);
 
       }
     });

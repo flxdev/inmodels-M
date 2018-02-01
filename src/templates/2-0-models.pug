@@ -7,13 +7,14 @@ extends layouts/_layout
 block content
 
 	.barba-container(data-namespace="models")
-		.block.bg-brend
-			.block-content
+		.block
+			.logo-wrap.bg-brend
+				a(href="/home.html")
+					+icon('logo')
+			.block-content.bg-brend
 				.models-page
 					+search-block
 					.models-wrap.ajax-list
-						.stamp-models.stamp1
-						.stamp-models.stamp2
 						+models-item('models-1.jpg', 'Sasha Pronenko')
 						+models-item('models-2.jpg', 'Vasili Viartsiukhova')
 						+models-item('models-3.jpg', 'Masha Pronenko')

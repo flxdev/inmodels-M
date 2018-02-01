@@ -6,21 +6,23 @@ title: Become a model
 extends layouts/_layout
 block content
 
-	.barba-container(data-namespace="contacts")
 		.block
+			.logo-wrap.bg-brend
+				a(href="/home.html")
+					+icon('logo')
 			.block-grid
 				.aside.bg-brend
-					.aside-content-wrap.js-stick-parent
-						.aside-content.js-stick
-							h1 Become a model
-							p.text-middle Agency «INMODELS» is always interested in new faces. If you are interested in the work of the model and you meet the specified criteria, please use the form below.
-							h4 Options
-							p.text You are between 13 and 22 years old, height from 170 to 182 cm, waist up to 63 cm, hips up to 92 cm
-							h4 Additionally
-							p.text
-								| Attach to the questionnaire photos of the person without make-up (full face, profile, 3/4) and a full-length photograph in a swimsuit. If you have a portfolio, send it to us at 
-								a(href="mailto:info@inmodels.by") info@inmodels.by
-								|&nbsp; with their contact information.
+					.aside-content
+						h1 Become a model
+						p.text-middle Agency «INMODELS» is always interested in new faces. If you are interested in the work of the model and you meet the specified criteria, please use the form below.
+						+button('fill the form', 'transparent')
+						h4 Options
+						p.text You are between 13 and 22 years old, height from 170 to 182 cm, waist up to 63 cm, hips up to 92 cm
+						h4 Additionally
+						p.text
+							| Attach to the questionnaire photos of the person without make-up (full face, profile, 3/4) and a full-length photograph in a swimsuit. If you have a portfolio, send it to us at 
+							a(href="mailto:info@inmodels.by") info@inmodels.by
+							|&nbsp; with their contact information.
 				.main.bg-white
 					.main-content
 						.form-block
@@ -51,12 +53,13 @@ block content
 											data-validation-error-msg="required field"
 											)
 										label.input-label(for="model-local") City / country
-									.input-item.c2
-										input.input-field(
-											type="number"
-											id="model-age"
-											)
-										label.input-label(for="model-age") Age
+									.input-half
+										.input-item
+											input.input-field(
+												type="number"
+												id="model-age"
+												)
+											label.input-label(for="model-age") Age
 								.form-block__title options
 								.input-row
 									.input-item.c4
@@ -166,34 +169,30 @@ block content
 								.input-row
 									.input-item.c2.drop-item(action="/upload")
 										.dz-message 
-											.input-label
-												span.drop-item__icon
-													+icon('cross')
-												input.input-field(
-													type="hidden"
-													id="photos"
-													data-validation="required"
-													data-validation-error-msg="required upload file"
-													)
-												.input-label Add photo face
+											span.drop-item__icon
+												+icon('cross')
+											input.input-field(
+												type="hidden"
+												id="photos"
+												data-validation="required"
+												data-validation-error-msg="required upload file"
+												)
+											.input-label Add photo face
 									.input-item.c2.drop-item(action="/upload")
 										.dz-message 
-											.input-label
-												span.drop-item__icon
-													+icon('cross')
-												.input-label Add profile photo
+											span.drop-item__icon
+												+icon('cross')
+											.input-label Add profile photo
 									.input-item.c2.drop-item(action="/upload")
 										.dz-message 
-											.input-label
-												span.drop-item__icon
-													+icon('cross')
-												.input-label Add photo 3/4
+											span.drop-item__icon
+												+icon('cross')
+											.input-label Add photo 3/4
 									.input-item.c2.drop-item(action="/upload")
 										.dz-message 
-											.input-label
-												span.drop-item__icon
-													+icon('cross')
-												.input-label Add photo in full length
+											span.drop-item__icon
+												+icon('cross')
+											.input-label Add photo in full length
 									.input-item.input-textarea
 										textarea.input-field(
 											type="text"

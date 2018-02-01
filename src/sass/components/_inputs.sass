@@ -1,11 +1,11 @@
 .form-block
 	width: 100%
-	max-width: 600px
+	// max-width: 600px
 	&__title
 		width: 100%
-		margin-bottom: 50px
+		margin-bottom: 30px
 		text-transform: uppercase
-		font-size: 12px
+		font-size: 20px
 		letter-spacing: 3px
 		color: $light-brend
 		font-weight: normal
@@ -38,7 +38,7 @@
 		font-weight: 300
 		border-bottom: 1px solid $hover-color
 		position: relative
-		margin-bottom: 50px
+		margin-bottom: 40px
 		transform: translateY(20px)
 		opacity: 0
 		transition: opacity .3s .3s, transform .4s .3s
@@ -132,11 +132,17 @@
 		&.input-textarea
 			label
 				top: auto
-				bottom: 10px
+				bottom: 12px
 		&.c2
 			width: 45.83%
+			+r(600)
+				width: 100%
 		&.c4
 			width: 19%
+			+r(600)
+				width: 45.83%
+			+r(350)
+				width: 100%
 		&.input-disable
 			pointer-events: none
 			border-color: $disable-color
@@ -234,6 +240,8 @@
 			text-align: right
 			&::before, &::after
 				display: none
+			+r(600)
+				text-align: left
 		&.select
 			&::before
 				display: none
@@ -301,7 +309,15 @@
 		&.animate
 			opacity: 1
 			transform: none
-		
+	&-half
+		width: 45.83%
+		.input-item
+			width: 43.6%
+		+r(600)
+			.input-item
+				width: 100%
+		+r(350)
+			width: 100%
 	&-label
 		cursor: text
 		font-size: inherit

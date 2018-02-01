@@ -10,7 +10,7 @@ export default function initIndexSlider() {
       loop: false,
       slidesPerView: 1,
       autoplay: {
-        delay: 5000,
+        delay: 3000,
       },
     });
   }

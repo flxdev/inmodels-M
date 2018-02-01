@@ -1,5 +1,4 @@
 import Isotope from 'isotope-layout/dist/isotope.pkgd.js';
-import InfiniteScroll from 'infinite-scroll/dist/infinite-scroll.pkgd.js';
 
 export default function initModels() {
 
@@ -13,7 +12,6 @@ export default function initModels() {
       masonry: {
         columnWidth: '.models-item'
       },
-      stamp: '.stamp-models',
       stagger: 30,
       transitionDuration: '0.6s',
       hiddenStyle: {
@@ -85,7 +83,7 @@ export default function initModels() {
       iso.layout();
     }, 200 ));
     
-    // debounce so filtering doesn't happen every millisecond
+    //debounce so filtering doesn't happen every millisecond
     function debounce( fn, threshold ) {
       let timeout;
       return function debounced() {
@@ -137,11 +135,11 @@ export default function initModels() {
         if($wrapper.length) {
           container.addClass(loadingClass);
           $.get($link.attr('href'), {'AJAX_PAGE' : 'Y'}, function(data) {
-            // if(isHistoryApiAvailable()) {
-            //   if($link.attr('href') !== window.location) {
-            //     window.history.pushState(null, null, $link.attr('href'));
-            //   }
-            // }
+            if(isHistoryApiAvailable()) {
+              if($link.attr('href') !== window.location) {
+                window.history.pushState(null, null, $link.attr('href'));
+              }
+            }
             
             $('.' + ajaxPagerWrapClass).remove();
             container.append(data);
@@ -166,7 +164,7 @@ export default function initModels() {
         }
       };
 
-    // function isHistoryApiAvailable() {return!(!window.history||!history.pushState);}
+    function isHistoryApiAvailable() {return!(!window.history||!history.pushState);}
 
     $(function() {
     

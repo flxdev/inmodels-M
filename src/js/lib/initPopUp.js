@@ -10,20 +10,15 @@ export default function initPopUp() {
   _this.conf = {
     active_class: 'active',
     close_selector: '.closePopup',
-    link_selector: '.modal-link',
     initial_class: 'popup-initialed',
     header_class: 'is-hidden'
   };
   _this.f.initModalActions = function(_popup) {
     /**
-		 * Close buttons.
-		 */
+     * Close buttons.
+     */
     $(_popup).on('click touchstart ', '.modal-container', function(e) {
-      if ( $(_this.conf.close_selector).is(e.target) || $(_this.conf.link_selector).is(e.target) ) {
-       
-        console.log('azaz');
-      } else {
-        console.log('awaw');
+      if (!$(_this.conf.close_selector).is(e.target)) {
         e.stopPropagation();
       }
     });
@@ -47,8 +42,8 @@ export default function initPopUp() {
     },5);
   };
   /**
-	 * Initial.
-	 */
+   * Initial.
+   */
   $.each(_this.c.popup.not('.' + _this.conf.initial_class), function() {
     var _popup = $(this);
     _this.f.initModalActions(_popup);
@@ -65,7 +60,6 @@ export default function initPopUp() {
     _this.f.openPopup(_popup);
     return false;
   });
-
   window.DOM = {
     body: $('body'),
     html: $('html'),

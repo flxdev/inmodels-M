@@ -21,12 +21,10 @@
 .index-title
 	&-wrap
 		width: 100%
-		height: 100%
 		position: relative
 		z-index: 2
-		padding: 0 80px
+		padding: 0 40px
 		display: inline-block
-		+vertical
 	&-inner
 		display: inline-block
 		vertical-align: middle
@@ -42,6 +40,12 @@
 			line-height: 2.59
 			letter-spacing: 31px
 			text-transform: uppercase
+			+r(480)
+				font-size: 48px
+				line-height: 2.08
+				letter-spacing: 18px
+			+r(480)
+				font-size: 40px
 			&:last-child
 				margin-left: auto
 				margin-right: 0
@@ -52,10 +56,26 @@
 	left: 0
 	height: 100%
 	width: 100%
+	.swiper-slide
+		img
+			width: 100%
+			height: 100%
+			max-height: 100%
+			object-fit: cover
+			max-width: 100%
+
+.logo-wrap
+	padding: 40px 40px 70px 40px
+	position: relative
+	z-index: 2
+	a
+		display: block
+		height: 20px
+		width: 112px
+		margin: 0 0 0 auto
 
 .aside
 	.contacts-wrap
-		margin-bottom: 110px
 		a
 			display: block
 			margin: 10px 0
@@ -73,33 +93,21 @@
 		margin-bottom: 50px
 
 .models-page
+	padding-bottom: 40px
 	.models-wrap
 		font-size: 0
 		margin: 0 -5px
 		position: relative
-		padding-top: 30px
-		.stamp-models
-			position: absolute
-			width: 23%
-			height: 50px
-			top: 30px
-			&.stamp1
-				left: 0
-			&.stamp2
-				left: 52%
-			&.re-stamp
-				&.stamp1
-					left: 25%
-				&.stamp2
-					left: 75%
-			&.hide-stamp
-				display: none
 		.models-item
 			display: inline-block
-			width: calc(25% - 10px)
+			width: calc(33% - 20px)
 			position: relative
-			margin: 5px
+			margin: 10px
 			font-size: 0
+			+r(768)
+				width: calc(50% - 20px)
+			+r(600)
+				width: calc(100% - 20px)
 			&__title
 				color: #ffffff
 				font-size: 36px
@@ -151,7 +159,7 @@
 		left: 0
 
 .gallery-page
-	padding-top: 110px
+	padding-bottom: 40px
 	&__title
 		font-size: 50px
 	&__footer
@@ -174,21 +182,16 @@
 		margin: 0 -10px
 		position: relative
 		margin-bottom: 200px
-		.stamp-gallery
-			position: absolute
-			width: 30%
-			height: 50px
-			top: 10px
-			&.stamp1
-				left: 0
-			&.stamp2
-				right: 0
 		.gallery-item
 			display: inline-block
 			width: calc(33% - 20px)
 			position: relative
 			margin: 10px
 			font-size: 0
+			+r(768)
+				width: calc(50% - 20px)
+			+r(600)
+				width: calc(100% - 20px)
 			&.hide-gallery
 				border: 1px solid red
 			&__date
@@ -284,122 +287,73 @@
 			opacity: 1
 			transform: none
 
-.about-menu
-	padding-left: 6.66%
-	padding-top: 40px
-	&__list
-		margin-left: 40px
-	&__item
-		&:not(:first-child)
-			margin-top: 10px
-	&__link
-		text-transform: uppercase
-		display: inline-block
-		padding: 3px 0
-		font-size: 12px
-		letter-spacing: 3px
-		position: relative
-		&::before
-			content: ''
-			display: block
-			width: 50px
-			height: 1px
-			background-color: $color
-			position: absolute
-			top: 9px
-			left: -70px
-			transform: scaleX(0)
-			transform-origin: 100%
-			transition: transform .4s
-		&:hover
-			&::before
-				transform: scaleX(.6)
-				transition-timing-function: ease-out
-		&.active
-			color: $color
-			pointer-events: none
-			&::before
-				transform: scaleX(1)
-
 .about-content
-	padding-left: 6.66%
-	padding-top: 135px
 	font-size: 0
-	&__full-text
-		max-width: 840px
-		margin: 80px auto 85px auto
-	&__row
-		display: flex
-		align-items: flex-end
-	&__cell
+	padding-bottom: 80px
+	h1
+		text-align: left
+		margin-bottom: 60px
 		position: relative
-		width: 50%
-		display: inline-block
-		h1
-			position: absolute
-			top: 45px
-			left: 40px
-			text-align: left
-			z-index: 2
-		img
-			max-width: 480px
-		&.cell-title
-			text-align: right
-			img
-				max-width: 460px
-		&.cell-text_r
-			padding-left: 12.5%
-			padding-bottom: 18px
-		&.cell-text_l
-			align-self: flex-start
-			padding-top: 20px
-			padding-left: 14.5%
-			padding-right: 20px
-		&.cell-img_r
-			padding-left: 70px
-			z-index: -1
-		&.cell-img_l
-			padding-right: 70px
+		z-index: 2
+	img
+		display: block
+		max-width: 680px
+		margin-left: 0
+		margin-bottom: 50px
+	.sub-title--offset
+		margin-top: 60px
+		margin-bottom: 10px
+	.text-big
+		margin-top: 60px
+		margin-bottom: 50px
+	.text
+		margin: 20px 0
+		font-size: 20px
+		line-height: 1.5
 	&__text
 		width: 100%
-		max-width: 360px
-		// margin: 0 auto
-		margin-bottom: -20px
 		text-align: left
 		.text
-			margin: 20px 0
+			font-weight: 500
 		.text-big
 			margin: 0
 			margin-bottom: 50px
 			font-weight: normal
 			line-height: 1.54
-		.sub-title--offset
-			margin-top: 110px
-			margin-bottom: 30px
+			font-size: 28px
+			font-weight: normal
+			line-height: 1.43
+		
+
 	&__slider
 		font-size: 20px
 		width: 100%
-		max-width: 840px
 		margin-right: 0
 		margin-left: auto
-		margin-top: 160px
+		margin-top: 60px
 		position: relative
 		&-wrap
 			background-color: $bg-dark
-			padding: 40px 90px 30px 90px
+			padding: 40px
 		&-msg
 			position: absolute
-			top: -60px
-			left: -180px
+			bottom: -40px
+			right: -20px
 			z-index: 2
 			width: 100%
-			max-width: 370px
-			padding: 80px 60px 70px 60px
+			max-width: 315px
+			padding: 60px 30px 30px 30px
 			background-color: $bg-color
 			box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.15)
+			+r(768)
+				position: relative
+				bottom: auto
+				right: auto
+				margin-top: 60px
 			.text-big
 				font-weight: normal
 				line-height: 1.54
+				margin: 0
 			.bttn
 				margin-top: 53px
 				padding-left: 23px
@@ -408,8 +362,8 @@
 			padding-bottom: 30px
 		& .swiper-slide
 			width: 100%
-			max-width: 320px
-			height: 480px
+			img
+				max-width: 100%
 		& .swiper-pagination
 			text-align: left
 			bottom: 0
@@ -436,19 +390,24 @@
 					position: absolute
 					top: 50%
 					left: 0
-.about	
+
 	.link-footer
-		margin: 175px 0
-		padding: 0 6.66%
+		text-align: center
+		margin-top: 60px
 		&-inner
-			display: flex
-			justify-content: space-between
-			opacity: 0
-			transform: translateY(40px)
-			transition: opacity .3s .4s, transform .4s .4s
+			.link-footer__item
+				opacity: 0
+				transform: translateY(20px)
+				transition: opacity .1s .0s, transform .0s .1s
+				&:not(:last-child)
+					margin-bottom: 30px
 			&.animate
-				opacity: 1
-				transform: none
+				@for $i from 1 to 7
+					.link-footer__item:nth-child(n+#{$i})
+						opacity: 1
+						transform: none
+						transition: opacity .3s, transform .4s
+						transition-delay: 0.2s * $i
 
 .line-decor
 	display: block

@@ -6,27 +6,33 @@
 	right: 0
 	z-index: 5
 	visibility: hidden
-	padding: 40px
+	//padding: 40px
 
 .navigation
 	width: 100%
 	height: 100%
 	position: relative
+	z-index: 4
 	&-burger		
 		display: flex
 		flex-direction: column
 		justify-content: space-between
 		align-items: stretch
-		width: 20px
-		height: 20px
-		cursor: pointer
+		width: 100px
+		height: 100px
+		padding: 40px
 		background-color: transparent
+		cursor: pointer
 		visibility: visible
 		position: absolute
+		z-index: 10
 		top: 0
 		left: 0
 		opacity: 1
-		transition: opacity .3s .3s, visibility 0s .2s
+		transition: opacity .3s .3s, visibility 0s .2s, background-color .3s, box-shadow .3s
+		&.scrolling
+			background-color: $bg-brend
+			box-shadow: 0 2px 20px 0 rgba(76, 70, 68, 0.2)
 		&__item
 			display: block
 			width: 100%
@@ -48,14 +54,14 @@
 		text-transform: uppercase
 		visibility: hidden
 		color: $color
-		transform: translateX(20px)
+		transform: translateX(-20px)
 		transform-origin: 100% 0
 		opacity: 0
 		transition: transform .3s .1s, opacity .3s .1s, visibility 0s .3s
 	&-logo
-		display: block
-		width: 20px
-		height: 112px
+		display: none
+		height: 20px
+		width: 112px
 		position: absolute
 		visibility: visible
 		opacity: 1
@@ -93,50 +99,8 @@
 		&__item
 			font-size: 18px
 			color: $color
-		// &:hover &__item
-		// 	color: $link-color
-		// 	-webkit-transform-style: preserve-3d
-  //  			-webkit-backface-visibility: hidden
-		// & &__item
-		// 	color: $color
-		// 	&:hover
-		// 		color: $color
-		// & > *:not(:first-child)
-		// 	margin-left: 40px
-		// &-wrap
-		// 	display: inline-block
-		// 	font-size: 0
-		// 	+clr
-		// 	&:hover
-		// 		.navigation-link__item
-		// 			&:first-child
-		// 				&:hover
-		// 					&::after
-		// 						background-color: $color
-		// 						transform: translateX(-25px) scaleX(.9)
-		// 				&:not(:hover)
-		// 					&::after
-		// 						background-color: $color
-		// 						transform: translateX(25px) scaleX(.9)
-							
-		// &-wrap &__item
-		// 	display: inline-block
-		// 	position: relative
-
-		// 	&:first-child
-		// 		padding-right: 60px
-		// 		&::after
-		// 			content: ''
-		// 			display: block
-		// 			width: 40px
-		// 			height: 1px
-		// 			margin-top: 12px
-		// 			margin-right: -80px
-		// 			float: right
-		// 			background-color: $light-brend
-		// 			transition: transform .4s ease, background-color .3s
-		// 	&:last-child
-		// 		padding-left: 60px
+			+r(400)
+				font-size: 15px
 		&.header-links
 			visibility: hidden
 			position: absolute
