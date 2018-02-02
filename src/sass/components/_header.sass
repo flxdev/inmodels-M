@@ -45,8 +45,8 @@
 		display: block
 		position: absolute
 		// mobile style
-		bottom: 0
-		left: 0
+		bottom: 30px
+		left: 30px
 		font-size: 12px
 		font-weight: normal
 		line-height: 1.67
@@ -78,16 +78,22 @@
 
 
 	&-search
-		display: none
+		display: block
 		position: absolute
-		left: 0
+		left: 25px
 		top: calc(50% - 10px)
-		visibility: visible
+		visibility: hidden
+		opacity: 0
+		transform: translateX(-25px)
 		color: $light-brend
 		width: 20px
 		height: 20px
+		transition: opacity .2s 0s, transform .2s 0s, visibility 0s .3s
 		&.active
-			display: block
+			visibility: visible
+			opacity: 1
+			transform: none
+			transition: opacity .4s .1s, transform .4s .1s, visibility 0s
 	&-link
 		display: inline-block
 		text-transform: uppercase
@@ -138,6 +144,12 @@
 					transform: rotate(-90deg) translateY(40px)
 					opacity: 0
 					transition: opacity .2s 0s, transform .2s 0s, visibility 0s .3s
+		&-search
+			visibility: hidden
+			opacity: 0
+			transform: translateX(-25px)
+			transition: opacity .2s 0s, transform .2s 0s, visibility 0s .3s
+
 
 				
 .show-menu .navigation-lang, .navigation-lang.visible-lang
@@ -145,3 +157,8 @@
 	opacity: 1
 	transform: none
 	transition: transform .3s .15s, opacity .3s .15s, visibility 0s .1s
+
+.models
+	.navigation
+		&-search
+			display: block

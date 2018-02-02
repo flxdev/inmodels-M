@@ -54,4 +54,14 @@ export default function setInputFocus() {
     });
   }
   autosize($('textarea'));
+
+  $('.js-to-form').on('click touchstart', function(e) {
+    e.preventDefault();
+    let _t = $(this),
+      to_scroll = _t.attr('href'),
+      how_scroll = $(to_scroll).offset().top-60;
+
+    $('html, body').animate({scrollTop: how_scroll}, 600);
+  });
+
 }

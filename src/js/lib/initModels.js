@@ -186,14 +186,14 @@ export default function initModels() {
     scrolled = window.pageYOffset || document.documentElement.scrollTop;
   };
 
-  $('.navigation-search').on('click',function(e) {
+  $('.navigation-search').on('click touchstart',function(e) {
     e.preventDefault();
     let el_scroll = $(this).attr('href'),
       el_input = $(el_scroll).find('input'),
       el_off = $(el_scroll).offset().top;
     if($(el_scroll).hasClass('active')) {
       if(scrolled > el_off) {
-        $('html, body').animate({scrollTop: el_off}, 300);
+        $('html, body').animate({scrollTop: 0}, 300);
         el_input.focus();
         return false;
       } else {
@@ -202,12 +202,10 @@ export default function initModels() {
       }
     } else {
       $(el_scroll).addClass('active');
-      $('html, body').animate({scrollTop: el_off}, 300);
+      $('html, body').animate({scrollTop: 0}, 300);
       el_input.focus();
       return false;
     }
   });
-
-  
 
 }

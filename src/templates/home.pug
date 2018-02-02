@@ -5,25 +5,26 @@ title: Index Page
 ---
 extends layouts/_layout
 block content
-
-	.block.-fullpage
-		.index-slider.swiper-container
-			.swiper-wrapper
-				.swiper-slide
-					img(src="img/anastasia-1-big.jpg", alt="slider")
-				.swiper-slide
-					img(src="img/anastasia-2-big.jpg", alt="slider")
-				.swiper-slide
-					img(src="img/anastasia-1-big.jpg", alt="slider")
-				.swiper-slide
-					img(src="img/anastasia-2-big.jpg", alt="slider")
-		.logo-wrap
-			a(href="/home.html")
-				+icon('logo')
-		.index-title-wrap
-			.index-title-inner
-				.index-title-item
-					span Find
-					span the 
-					span beauty
-					span inside
+	
+	.barba-container(data-namespace="index")
+		.block.-fullpage
+			.index-slider.swiper-container
+				.swiper-wrapper
+					.swiper-slide
+						img(src="img/anastasia-1-big.jpg", alt="slider")
+					.swiper-slide
+						img(src="img/anastasia-2-big.jpg", alt="slider")
+					.swiper-slide
+						img(src="img/anastasia-1-big.jpg", alt="slider")
+					.swiper-slide
+						img(src="img/anastasia-2-big.jpg", alt="slider")
+			.logo-wrap
+				a(href="/home.html")
+					+icon('logo')
+			.index-title-wrap
+				.index-title-inner
+					.index-title-item
+						span Find
+						span the 
+						span beauty
+						span inside

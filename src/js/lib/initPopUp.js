@@ -10,6 +10,7 @@ export default function initPopUp() {
   _this.conf = {
     active_class: 'active',
     close_selector: '.closePopup',
+    link_selector: '.modal-link',
     initial_class: 'popup-initialed',
     header_class: 'is-hidden'
   };
@@ -18,7 +19,8 @@ export default function initPopUp() {
      * Close buttons.
      */
     $(_popup).on('click touchstart ', '.modal-container', function(e) {
-      if (!$(_this.conf.close_selector).is(e.target)) {
+      if ( $(_this.conf.close_selector).is(e.target) || $(_this.conf.link_selector).is(e.target) ) {
+      } else {
         e.stopPropagation();
       }
     });
@@ -53,7 +55,7 @@ export default function initPopUp() {
     _popup.addClass(_this.conf.initial_class);
   });
 
-  _this.b.open.off('click.popup').on('click.popup', function(e) {
+  _this.b.open.off('click.popup').on('click.popup touchstart', function(e) {
     e.preventDefault();
     var _b = $(this),
       _popup = _this.c.popup.filter('[data-modal="' + _b.data('modal') + '"]');

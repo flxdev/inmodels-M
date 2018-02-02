@@ -56,7 +56,6 @@
     "htmlhint": "^0.9.13",
     "husky": "^0.14.3",
     "in-view": "^0.6.1",
-    "infinite-scroll": "^3.0.3",
     "isotope-layout": "^3.0.5",
     "jquery": "^3.3.1",
     "jquery-form-validator": "^2.3.77",
@@ -79,7 +78,7 @@
     "sumoselect": "^3.0.3",
     "swiper": "^4.1.0",
     "through2": "^2.0.3",
-    "uglifyjs-webpack-plugin": "^1.1.4",
+    "uglifyjs-webpack-plugin": "^1.1.6",
     "vide": "^0.5.1",
     "webpack": "^3.10.0",
     "webpack-bundle-analyzer": "^2.9.1"

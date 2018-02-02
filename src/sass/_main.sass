@@ -94,20 +94,19 @@
 
 .models-page
 	padding-bottom: 40px
+	padding-left: 30px
 	.models-wrap
 		font-size: 0
 		margin: 0 -5px
 		position: relative
 		.models-item
 			display: inline-block
-			width: calc(33% - 20px)
+			width: calc(50% - 10px)
 			position: relative
-			margin: 10px
+			margin: 5px
 			font-size: 0
 			+r(768)
-				width: calc(50% - 20px)
-			+r(600)
-				width: calc(100% - 20px)
+				width: calc(100% - 10px)
 			&__title
 				color: #ffffff
 				font-size: 36px
@@ -140,10 +139,17 @@
 						opacity: 1
 						transition: transform .3s .2s, opacity .2s .2s
 						transform: none
-			&.hide-model
-				border: 1px solid red
+			&.in-view
+				.models-item__info
+					opacity: 1
+				.models-item__title
+					opacity: 1
+					transition: transform .3s .2s, opacity .2s .2s
+					transform: none
+
 			.hide-wrap-model
 				visible: hidden
+
 	.search-block
 		height: 0
 		padding: 0
@@ -170,13 +176,20 @@
 			bottom: -100px
 			left: 0
 	.gallery-filter
-		margin: 60px -5px 75px -5px
+		margin: 60px 0 75px 0
+		&__bttn
+			margin-bottom: 20px
+			width: auto
 		&__item 
 			display: inline-block
-			padding: 5px
+			padding: 7px
 			background-color: transparent
-			&:not(:first-child)
-				margin-left: 5.5%
+		&-bar.swiper-scrollbar
+			background-color: $light-brend
+			height: 2px;
+			.swiper-scrollbar-drag
+				background-color: rgba($color, .5)
+
 	.gallery-wrap
 		font-size: 0
 		margin: 0 -10px
@@ -184,14 +197,12 @@
 		margin-bottom: 200px
 		.gallery-item
 			display: inline-block
-			width: calc(33% - 20px)
+			width: calc(50% - 10px)
 			position: relative
-			margin: 10px
+			margin: 5px
 			font-size: 0
 			+r(768)
-				width: calc(50% - 20px)
-			+r(600)
-				width: calc(100% - 20px)
+				width: calc(100% - 10px)
 			&.hide-gallery
 				border: 1px solid red
 			&__date
@@ -249,43 +260,54 @@
 						transform: none
 
 .gallery-news
-	.main
-		padding-left: 0
-		padding-bottom: 380px
-	&-title
-		margin-bottom: 40px
+	& &-title
 		letter-spacing: normal
 		h1
 			font-size: 50px
 			line-height: normal
+			margin-bottom: 30px
+			+r(450)
+				font-size: 40px
+			+r(350)
+				font-size: 35px
 	&-date
 		font-size: 14px
 		line-height: 1.71
 		margin-bottom: 75px
 		text-transform: uppercase
 	&-description
-		margin-bottom: 50px
+		margin-bottom: 20px
 	&-content
 		width: 100%
-		max-width: 720px
 		font-size: 0
-		padding-top: 160px
-		& > * 
+		& > *
+			display: block
+			max-width: 680px
+			margin-left: 0
 			&:not(:last-child)
 				margin-bottom: 20px
 	&-footer
 		width: 100%
 		text-align: left
 		margin-left: auto
-		position: absolute
-		bottom: 130px
-		left: 0
-		opacity: 0
-		transform: translateY(40px)
-		transition: opacity .3s .4s, transform .4s .4s
+		padding-top: 50px 
+		padding-bottom: 20px
+		a
+			display: inline-block
+			opacity: 0
+			transform: translateY(40px)
+			transition: opacity .3s .4s, transform .4s .4s
 		&.animate
-			opacity: 1
-			transform: none
+			a
+				opacity: 1
+				transform: none
+	.share-block
+		padding: 75px 20px 80px 20px
+		&__link
+			margin-bottom: 150px
+			a:not(:last-child)
+				margin-bottom: 30px
+
 
 .about-content
 	font-size: 0
@@ -428,35 +450,37 @@
 		&::before
 			right: -43%
 
-.block-inner
-	.aside
-		display: flex
-		padding-bottom: 40px
 .inner
 	&-title
-		width: 47%
+		width: 100%
 		display: block
 		position: relative
 		&-wrap
-			transform: rotate(-90deg)
 			width: 100%
-			position: absolute
-			bottom: -125px
-			transform-origin: 0 0
-			left: -40px
 			h1
 				text-transform: none
-				text-align: left			
+				text-align: left
+				font-size: 50px
+				line-height: normal
+				line-height: 1.33
+				margin-bottom: 30px
+				+r(450)
+					font-size: 40px
+				+r(350)
+					font-size: 35px			
 	&-info
-		width: 53%
+		width: 100%
 		text-align: left
-		padding-top: 110px
-		overflow-y: auto
-		display: flex
-		flex-direction: column
+		margin: 60px 0 40px
+		&-bar.swiper-scrollbar
+			background-color: $light-brend
+			height: 2px;
+			.swiper-scrollbar-drag
+				background-color: rgba($color, .5)
+
 		&__item
-			&:not(:last-child)
-				margin-bottom: 25px
+			width: auto
+			margin-bottom: 25px
 		// @for $i from 1 to 10
 		// 	.inner-info__item:nth-child(n+#{$i})
 		// 		opacity: 1
@@ -466,24 +490,36 @@
 		&__title,
 		&__desc
 			line-height: 1.33
+
 		&__link
-			margin-top: auto
-			margin-bottom: 0
+			margin-bottom: 40px
 			a
 				display: block
 				margin-top: 15px
 
+
 /* swiper */
 .inner-slider
 	height: 100%
-	padding-bottom: 120px
+	padding-bottom: 100px
+	display: flex
+	align-items: stretch
 	.swiper-wrapper
 		height: 100%
+		// +r(450)
+		// 	height: 500px
 		.swiper-slide
 			height: 100%
 			width: 100%
-			max-width: 450px
+			max-width: 50%
 			overflow: hidden
+			+r(768)
+				max-width: 80%
+			+r(550)
+				max-width: 100%
+			.item
+				width: 100%
+				height: 100%
 			img
 				height: 100%
 				width: 100%
@@ -497,23 +533,28 @@
 					display: inline-block
 					vertical-align: middle
 			&.swiper-slide-social
-				margin-right: 40px
-				max-width: 60%
 				display: flex
 				.share-block
 					display: flex
 					flex-direction: column
 					width: 100%
+					height: 100%
+					padding: 20px
+					&__title
+						margin-bottom: 20%
 					&__link
 						margin: 0
+						+r(500)
+						a
+							font-size: 20px
 					&__bttn
-						margin: auto 0 0 0
+						margin: 0 
+						margin-top: 20%
 	&.swiper-container-horizontal
-		& >.swiper-scrollbar
+		& >.swiper-scrollbar.inner-slider-bar
 			bottom: 70px
-			left: 20px
+			left: 0
 			width: 100%
-			max-width: 560px
 			background: transparent
 			height: 1px;
 			.swiper-scrollbar-drag
@@ -525,16 +566,15 @@
 		.swiper-pagination
 			visibility: hidden
 			display: none
-
+		
 		.swiper-navigation
 			position: absolute
 			text-align: left
 			bottom: 30px
-			left: 20px
+			left: 0
 			display: flex
 			justify-content: space-between
 			width: 100%
-			max-width: 560px
 			.slide-target
 				display: inline-block
 				background-color: transparent
@@ -549,6 +589,18 @@
 
 
 /* ligtgallery */
+// .lg-toolbar .lg-icon
+// 	outline: none
+// .lg-actions .lg-next,
+// .lg-actions .lg-prev
+// 	top: 0
+// 	height: 100%
+// 	background-color: rgba(0, 0, 0, 0)
+// 	outline: none
+// .lg-actions .lg-prev
+// 	left: 5px
+// .lg-actions .lg-next 
+//     right: 5px
 .lg-backdrop
 	background-color: rgba( #000000, .95)
 .lg-object

@@ -1,4 +1,5 @@
 import Isotope from 'isotope-layout/dist/isotope.pkgd.js';
+import Swiper from 'swiper/dist/js/swiper.min.js';
 
 export default function initGallery() {
 
@@ -109,7 +110,21 @@ export default function initGallery() {
       }
     });
 
+  }
 
+  let galleryFilter = $('.gallery-filter');
+  if(galleryFilter.length) {
+    var gallery_filter = new Swiper (galleryFilter, {
+      direction: 'horizontal',
+      loop: false,
+      slidesPerView: 'auto',
+      spaceBetween: 30,
+      freeMode: true,
+      scrollbar: {
+        el: '.gallery-filter-bar',
+        hide: false,
+      },
+    });
   }
 
 }

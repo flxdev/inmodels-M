@@ -5,7 +5,7 @@ title: Become a model
 ---
 extends layouts/_layout
 block content
-
+	.barba-container(data-namespace="contacts")
 		.block
 			.logo-wrap.bg-brend
 				a(href="/home.html")
@@ -15,7 +15,8 @@ block content
 					.aside-content
 						h1 Become a model
 						p.text-middle Agency «INMODELS» is always interested in new faces. If you are interested in the work of the model and you meet the specified criteria, please use the form below.
-						+button('fill the form', 'transparent')
+						a(href="#become-models-form").bttn.transparent.js-to-form
+							span fill the form
 						h4 Options
 						p.text You are between 13 and 22 years old, height from 170 to 182 cm, waist up to 63 cm, hips up to 92 cm
 						h4 Additionally
@@ -26,7 +27,7 @@ block content
 				.main.bg-white
 					.main-content
 						.form-block
-							form(action="#").js-validate
+							form#become-models-form(action="#").js-validate
 								.form-block__title Your data
 								.input-row
 									.input-item.c2
