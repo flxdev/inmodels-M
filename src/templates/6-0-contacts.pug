@@ -9,7 +9,7 @@ block content
 	.barba-container(data-namespace="contacts")
 		.block
 			.logo-wrap.bg-brend
-				a(href="/home.html")
+				a(href="./home.html")
 					+icon('logo')
 			.block-grid
 				.aside.bg-brend
@@ -23,7 +23,7 @@ block content
 							a.link(href="tel:+375(29)6336069") +375 (29) 633 60 69
 							a.link(href="tel:+375(33)6006069") +375 (33) 600 60 69
 							a.link(href="mailto:info@inmodels.by") info@inmodels.by
-						a(href="/7-0-Become-model.html").bttn.normal
+						a(href="./7-0-Become-model.html").bttn.normal
 							span Become a model
 				.main.bg-white
 					.main-content
@@ -32,7 +32,9 @@ block content
 								.input-row
 									.input-item.c2
 										input.input-field(type="text"
-											id="user-name")
+											id="user-name"
+											data-validation="required"
+											data-validation-error-msg="required field")
 										label.input-label(for="user-name") Name
 									.input-item.c2
 										input.input-field(type="tel"
@@ -40,12 +42,16 @@ block content
 										label.input-label(for="user-tel") Phone
 									.input-item
 										input.input-field(type="email"
-											id="user-email")
+											id="user-email"
+											data-validation="email"
+											data-validation-error-msg="required field")
 										label.input-label(for="user-email") Email
-									.input-item
+									.input-item.input-textarea
 										textarea.input-field(type="text"
 											id="user-msg"
-											rows="1.5")
+											rows="1.5"
+											data-validation="required"
+											data-validation-error-msg="required field")
 										label.input-label(for="user-msg") Message
 									.input-item.c2.drop-item(action="/upload")
 										.dz-message 

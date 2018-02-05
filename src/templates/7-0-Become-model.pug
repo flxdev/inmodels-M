@@ -8,7 +8,7 @@ block content
 	.barba-container(data-namespace="contacts")
 		.block
 			.logo-wrap.bg-brend
-				a(href="/home.html")
+				a(href="./home.html")
 					+icon('logo')
 			.block-grid
 				.aside.bg-brend
@@ -67,7 +67,7 @@ block content
 										input.input-field(
 											type="number"
 											id="model-height"
-											data-validation="required"
+											data-validation="number"
 											data-validation-error-msg="required field"
 											)
 										label.input-label(for="model-height") Height
@@ -75,7 +75,7 @@ block content
 										input.input-field(
 											type="number"
 											id="model-bust"
-											data-validation="required"
+											data-validation="number"
 											data-validation-error-msg="required field"
 											)
 										label.input-label(for="model-bust") Bust
@@ -83,7 +83,7 @@ block content
 										input.input-field(
 											type="number"
 											id="model-waist"
-											data-validation="required"
+											data-validation="number"
 											data-validation-error-msg="required field"
 											)
 										label.input-label(for="model-waist") Waist
@@ -91,7 +91,7 @@ block content
 										input.input-field(
 											type="number"
 											id="model-hips"
-											data-validation="required"
+											data-validation="number"
 											data-validation-error-msg="required field"
 											)
 										label.input-label(for="model-hips") Hips
@@ -114,12 +114,12 @@ block content
 											type="text"
 											id="model-phone"
 											)
-										label.input-label(for="model-email") Phone
+										label.input-label(for="model-phone") Phone
 									.input-item.c2
 										input.input-field(
 											type="email"
 											id="model-email"
-											data-validation="required"
+											data-validation="email"
 											data-validation-error-msg="required field"
 											)
 										label.input-label(for="model-email") Email
@@ -174,7 +174,7 @@ block content
 												+icon('cross')
 											input.input-field(
 												type="hidden"
-												id="photos"
+												id="photos-1"
 												data-validation="required"
 												data-validation-error-msg="required upload file"
 												)

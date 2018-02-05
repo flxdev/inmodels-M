@@ -8,7 +8,7 @@ export default function initInnerSlider() {
 
   	var slide_link = [];
 
-  	$('.swiper-container .swiper-slide').each(function(i) {
+  	$('.inner-slider .swiper-slide').each(function(i) {
       slide_link.push($(this).data('link'));
     });
 
@@ -16,25 +16,17 @@ export default function initInnerSlider() {
       slidesPerView: 'auto',
       spaceBetween: 20,
       freeMode: true,
-      freeModeMomentumBounce: false,
-      freeModeSticky: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-        renderBullet: function(index, className) {
-          return '<span class=" ' + className + ' ' + slide_link[index] + '">' + slide_link[index] + '</span>';
-        },
-      },
+      freeModeMomentumBounce: true,
       scrollbar: {
         el: '.inner-slider-bar',
         hide: false,
       },
     });
 
-    // swiper.on('transitionEnd', function() {
-    //   let trigger = $('.swiper-slide-active').data('link');
-    //   $('.' + trigger).addClass('active').siblings().removeClass('active');
-    // });
+    swiper.on('transitionEnd', function() {
+      let trigger = $('.inner-slider .swiper-slide-active').data('link');
+      $('.' + trigger).addClass('active').siblings().removeClass('active');
+    });
 
     // $('.slide-target').on('click', function(e) {
     // 	e.preventDefault();

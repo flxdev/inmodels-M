@@ -31,6 +31,8 @@
 		.search-not-found
 			opacity: 1
 			transform: none
+
+
 .input
 	&-item
 		display: inline-block
@@ -94,6 +96,9 @@
 			font-size: 26px
 			line-height: 1.54
 			font-weight: 300
+			+r(450)
+				font-size: 18px
+				line-height: 1
 			.input-label
 				top: 0
 				left: 16px
@@ -104,8 +109,13 @@
 				span
 					font-size: 40px
 					line-height: 26px
+					+r(450)
+						font-size: 25px
+						line-height: 18px
 			.input-field
 				padding: 3px 50px 14px 20px
+				+r(450)
+					padding: 5px 30px 5px 20px
 				&::-webkit-search-cancel-button
 					display: none
 				&::-ms-clear

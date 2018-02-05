@@ -120,6 +120,7 @@ var models = Barba.BaseView.extend({
     $('.navigation-search').addClass('active');
     scrollAnimations();
     initModels();
+    setInputFocus();
   },
   onLeave: function() {
     $('.navigation-search').removeClass('active');

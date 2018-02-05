@@ -94,6 +94,7 @@ export default function initGallery() {
           });
 
         }
+        
       };
 
     function isHistoryApiAvailable() {return!(!window.history||!history.pushState);}

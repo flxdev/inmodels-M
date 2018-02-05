@@ -6,36 +6,18 @@ title: Models
 extends layouts/_layout
 block content
 	.barba-container(data-namespace="models")
-		.block
+		.block.bg-brend
 			.logo-wrap.bg-brend
-				a(href="/home.html")
+				a(href="./home.html")
 					+icon('logo')
-			.block-content.bg-brend
+			.block-content
 				.models-page
 					+search-block
 					.models-wrap.ajax-list
 						+models-item('models-1.jpg', 'Sasha Pronenko')
-						+models-item('models-2.jpg', 'Vasili Viartsiukhova')
 						+models-item('models-3.jpg', 'Masha Pronenko')
 						+models-item('models-4.jpg', 'Anastasia Viartsiukhova')
-						+models-item('models-5.jpg', 'Vasiliy')
-						+models-item('models-6.jpg', 'Alena Viartsiukhova')
-						+models-item('models-7.jpg', 'Sasha Pronenko')
-						+models-item('models-8.jpg', 'Anastasia Viartsiukhova')
-						+models-item('models-1.jpg', 'Sergey')
-						+models-item('models-2.jpg', 'Vasil ')
-						+models-item('models-8.jpg', 'Anastasia Viartsiukhova')
-						+models-item('models-1.jpg', 'Sasha Pronenko')
-						+models-item('models-2.jpg', 'Olia Viartsiukhova')
-						+models-item('models-3.jpg', 'Masha Pronenko')
-						+models-item('models-4.jpg', 'Anastasia Viartsiukhova')
-						+models-item('models-5.jpg', 'Sasha Pronenko')
-						+models-item('models-6.jpg', 'Alena Viartsiukhova')
-						+models-item('models-7.jpg', 'Sasha Pronenko')
-						+models-item('models-8.jpg', 'Dima Viartsiukhova')
-						+models-item('models-1.jpg', 'Sergey')
-						+models-item('models-2.jpg', 'Vasi ')
-						+models-item('models-8.jpg', 'Anastasia Viartsiukhova')
+						+models-item('models-5.jpg', 'Sasha Grey')
 						.ajax-pager-wrap.lazy
 							.models-load
 								a.ajax-pager-link.no-barba(href="models-add.html", data-wrapper-class="models-wrap")

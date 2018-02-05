@@ -7,7 +7,7 @@ export default function initModels() {
    
     let iso = new Isotope( elem, {
       itemSelector: '.models-item',
-      layoutMode: 'masonry',
+      layoutMode: 'vertical',
       filter: '*',
       masonry: {
         columnWidth: '.models-item'
@@ -25,42 +25,42 @@ export default function initModels() {
     });
     iso.layout();
 
-    let $quicksearch = $('#searching').on('keyup', debounce( function() {
-      let qsRegex = new RegExp( $quicksearch.val(), 'gi' );
-      iso.arrange({
-        filter: function(itemElem) {
-          return qsRegex ? itemElem.querySelector('.models-item__title').innerText.match( qsRegex ) : true;
-        }
-      });
-      let searchField = document.querySelector('.form-search');
-      let filterLength = iso.filteredItems.length;
-      switch(filterLength) {
-        case 3:
-          $('.stamp-models').removeClass('hide-stamp').addClass('re-stamp');
-          iso.stamp('.stamp-models');
-          searchField.classList.remove('not-found');
-          break;
-        case 2:
-        case 1:
-          $('.stamp-models').addClass('hide-stamp');
-          iso.unstamp('.stamp-models');
-          searchField.classList.remove('not-found');
-          break;
-        default:
-          $('.stamp-models').removeClass('hide-stamp re-stamp');
-          iso.stamp('.stamp-models');
-          break;
-      }
-      if(iso.filteredItems.length < 1) {
-        searchField.classList.add('not-found');
-        let searchFieldValue = $quicksearch.val();
-        $('.not-found-result').text('"' + searchFieldValue + '"');
-      } else {
-        searchField.classList.remove('not-found');
-      }
-      iso.arrange();
-      iso.layout();
-    }, 200 ));
+    // let $quicksearch = $('#searching').on('keyup', debounce( function() {
+    //   let qsRegex = new RegExp( $quicksearch.val(), 'gi' );
+    //   iso.arrange({
+    //     filter: function(itemElem) {
+    //       return qsRegex ? itemElem.querySelector('.models-item__title').innerText.match( qsRegex ) : true;
+    //     }
+    //   });
+    //   let searchField = document.querySelector('.form-search');
+    //   let filterLength = iso.filteredItems.length;
+    //   switch(filterLength) {
+    //     case 3:
+    //       $('.stamp-models').removeClass('hide-stamp').addClass('re-stamp');
+    //       iso.stamp('.stamp-models');
+    //       searchField.classList.remove('not-found');
+    //       break;
+    //     case 2:
+    //     case 1:
+    //       $('.stamp-models').addClass('hide-stamp');
+    //       iso.unstamp('.stamp-models');
+    //       searchField.classList.remove('not-found');
+    //       break;
+    //     default:
+    //       $('.stamp-models').removeClass('hide-stamp re-stamp');
+    //       iso.stamp('.stamp-models');
+    //       break;
+    //   }
+    //   if(iso.filteredItems.length < 1) {
+    //     searchField.classList.add('not-found');
+    //     let searchFieldValue = $quicksearch.val();
+    //     $('.not-found-result').text('"' + searchFieldValue + '"');
+    //   } else {
+    //     searchField.classList.remove('not-found');
+    //   }
+    //   iso.arrange();
+    //   iso.layout();
+    // }, 200 ));
     
 
     let clr_bttn = $('.clear-bttn').on('click', debounce( function() {
@@ -115,8 +115,6 @@ export default function initModels() {
             if(($window.scrollTop() + $window.height()) > ($wrapper.offset().top + $wrapper.height()) && !busy) {
               busy = true;
               $('.' + ajaxPagerLinkClass).click();
-              console.log('has click');
-
             }
           });
         }
@@ -149,19 +147,20 @@ export default function initModels() {
             for (var i = 0, len = h_model.length; i<len; i++) {
               elem.appendChild(h_model[i]).classList.remove('hide-model');
             }
-            iso.appended( h_model );
-            iso.layout();
-
+            setTimeout(function() {
+              iso.appended( h_model );
+              iso.arrange();
+              iso.layout();
+            }, 10);
             
-
+           
             if($('.' + ajaxPagerWrapClass).hasClass(ajaxPagerLazyClass)) {
               attachScrollPagination(wrapperClass);
               busy = false;
             }
             container.removeClass(loadingClass);
           });
-
-        }
+        }      
       };
 
     function isHistoryApiAvailable() {return!(!window.history||!history.pushState);}
