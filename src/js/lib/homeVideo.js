@@ -1,5 +1,3 @@
-import vide from 'vide';
-
 export default function showVideo() {
 
   let video_c = $('.video-container');
@@ -15,26 +13,10 @@ export default function showVideo() {
         video.addClass('fadeIn animated');
       };
       video[0].load();
-      // $(window).on('resize', debounce(initsize));
     }
   }
   function isMobile() {
     return (/Android|webOS|iPhone|iPod|iPad|BlackBerry|Windows Phone|iemobile/i.test(navigator.userAgent));
   }
 
-
-
-  // let video = $('.video-container');
-  // if(video.length) {
-  //   $('.video-container').vide({
-  //     mp4: './img/video.mp4',
-  //     // webm: './img/video.webm',
-  //     poster: './img/video.jpg'
-  //   }, {
-  //     bgColor: '#f0eae8',
-  //     volume: 0,
-  //     muted: true,
-  //     posterType: 'jpg'
-  //   });
-  // }
 }

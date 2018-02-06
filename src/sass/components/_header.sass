@@ -41,45 +41,45 @@
 			transform: none
 			transition: transform .35s .6s ease-out
 		
-	&-lang
-		display: block
-		position: absolute
-		// mobile style
-		bottom: 40px
-		left: 40px
-		font-size: 12px
-		font-weight: normal
-		line-height: 1.67
-		letter-spacing: 3px
-		text-transform: uppercase
-		visibility: hidden
-		color: $color
-		transform: translateX(-20px)
-		transform-origin: 100% 0
-		opacity: 0
-		transition: transform .3s .1s, opacity .3s .1s, visibility 0s .3s
-	&-logo
-		display: none
-		height: 20px
-		width: 112px
-		position: absolute
-		visibility: visible
-		opacity: 1
-		transform: none
-		color: $color
-		&.hide-nav-logo
-			opacity: 0
-			transform: translateX(-25px)
-			visibility: hidden
-			transition: opacity .3s, transform .3s, visibility 0s .3s
-		// mobile style
-		top: 0
-		right: 0
+	// &-lang
+	// 	display: block
+	// 	position: absolute
+	// 	// mobile style
+	// 	bottom: 40px
+	// 	left: 40px
+	// 	font-size: 12px
+	// 	font-weight: normal
+	// 	line-height: 1.67
+	// 	letter-spacing: 3px
+	// 	text-transform: uppercase
+	// 	visibility: hidden
+	// 	color: $color
+	// 	transform: translateX(-20px)
+	// 	transform-origin: 100% 0
+	// 	opacity: 0
+	// 	transition: transform .3s .1s, opacity .3s .1s, visibility 0s .3s
+	// &-logo
+	// 	display: none
+	// 	height: 20px
+	// 	width: 112px
+	// 	position: absolute
+	// 	visibility: visible
+	// 	opacity: 1
+	// 	transform: none
+	// 	color: $color
+	// 	&.hide-nav-logo
+	// 		opacity: 0
+	// 		transform: translateX(-25px)
+	// 		visibility: hidden
+	// 		transition: opacity .3s, transform .3s, visibility 0s .3s
+	// 	// mobile style
+	// 	top: 0
+	// 	right: 0
 
 
 	&-search
 		display: block
-		position: absolute
+		position: fixed
 		left: 25px
 		top: calc(50% - 10px)
 		visibility: hidden
@@ -152,13 +152,13 @@
 
 
 				
-.show-menu .navigation-lang, .navigation-lang.visible-lang
-	visibility: visible
-	opacity: 1
-	transform: none
-	transition: transform .3s .15s, opacity .3s .15s, visibility 0s .1s
+// .show-menu .navigation-lang, .navigation-lang.visible-lang
+// 	visibility: visible
+// 	opacity: 1
+// 	transform: none
+// 	transition: transform .3s .15s, opacity .3s .15s, visibility 0s .1s
 
-.models
-	.navigation
-		&-search
-			display: block
+// .models
+// 	.navigation
+// 		&-search
+// 			display: block

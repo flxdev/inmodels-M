@@ -1,3 +1,4 @@
+import './domConf';
 export default function initPopUp() {
   var _this = $(this);
   _this.b = {
@@ -8,76 +9,75 @@ export default function initPopUp() {
   };
   _this.f = {};
   _this.conf = {
+    isAnimate: false,
     active_class: 'active',
-    close_selector: '.closePopup',
+    close_selector: $('.closePopup'),
     link_selector: '.modal-link',
     initial_class: 'popup-initialed',
     header_class: 'is-hidden'
   };
-  _this.f.initModalActions = function(_popup) {
-    /**
-     * Close buttons.
-     */
-    $(_popup).on('click touchstart ', '.modal-container', function(e) {
-      if ( $(_this.conf.close_selector).is(e.target) || $(_this.conf.link_selector).is(e.target) ) {
-      } else {
-        e.stopPropagation();
-      }
-    });
 
-    _popup.find(_this.conf.close_selector).add(_popup).off('click.popup').on('click.popup touchstart ', function() {
-      _this.f.closePopup(_popup);
-    });
-  };
+  // _this.f.initModalActions = function(_popup) {
+  //   /**
+  //    * Close buttons.
+  //    */
+  //   $(_popup).on('click touchstart ', '.modal-container', function(e) {
+  //     if(!_this.conf.isAnimate) {
+        
+  //       if ( $(_this.conf.close_selector).is(e.target) || $(_this.conf.link_selector).is(e.target) ) {
+  //       } else {
+  //         e.stopPropagation();
+  //       }
+  //     }
+  //   });   
+  // };
 
   _this.f.closePopup = function(_popup) {
-    _popup.removeClass(_this.conf.active_class);
+    _this.conf.isAnimate = true;
     setTimeout(function() {
       window.DOM.showScroll();
     },5);
+    _popup.removeClass(_this.conf.active_class);
+    _this.conf.isAnimate = false;
   };
 
   _this.f.openPopup = function(_popup) {
-    _popup.addClass(_this.conf.active_class);
-    setTimeout(function() {
-      window.DOM.hideScroll();
-    },5);
+    _this.conf.isAnimate = true;
+    _popup.addClass(_this.conf.active_class).promise().done(() => {
+      setTimeout(function() {
+        window.DOM.hideScroll();
+        _this.conf.isAnimate = false;
+      },200); 
+    });
   };
   /**
    * Initial.
    */
-  $.each(_this.c.popup.not('.' + _this.conf.initial_class), function() {
-    var _popup = $(this);
-    _this.f.initModalActions(_popup);
-    _popup.off('reinit').on('reinit', function() {
-      _this.f.initModalActions(_popup);
-    });
-    _popup.addClass(_this.conf.initial_class);
+  // $.each(_this.c.popup.not('.' + _this.conf.initial_class), function() {
+  //   var _popup = $(this);
+  //   _this.f.initModalActions(_popup);
+  //   console.log('1');
+  //   _popup.off('reinit').on('reinit', function() {
+  //     _this.f.initModalActions(_popup);
+  //     console.log('2');
+  //   });
+  //   _popup.addClass(_this.conf.initial_class);
+  //   console.log('3');
+  // });
+  
+  _this.conf.close_selector.off('click').on('click touchstart ', function() {
+    var _popup = $(this).parents(_this.c.popup);
+    _this.f.closePopup(_popup);
   });
 
-  _this.b.open.off('click.popup').on('click.popup touchstart', function(e) {
+  _this.b.open.off('click touchstart').on('click touchstart', function(e) {
     e.preventDefault();
-    var _b = $(this),
-      _popup = _this.c.popup.filter('[data-modal="' + _b.data('modal') + '"]');
-    _this.f.openPopup(_popup);
-    return false;
-  });
-  window.DOM = {
-    body: $('body'),
-    html: $('html'),
-    __prevScrollTop: 0,
-    hideScroll: function() {
-      // let top = $(window).scrollTop();
-      this.__prevScrollTop = $(window).scrollTop();
-      this.body.css('top',-this.__prevScrollTop + 'px');
-      window.scroll(0, this.__prevScrollTop);
-      this.body.addClass('show-menu');
-    },
-    showScroll: function() {
-      this.body.removeClass('show-menu');
-      this.__prevScrollTop && (window.scroll(0, this.__prevScrollTop));
-      this.__prevScrollTop = null;
+    if(!_this.conf.isAnimate) {
+      var _b = $(this),
+        _popup = _this.c.popup.filter('[data-modal="' + _b.data('modal') + '"]');
+      _this.f.openPopup(_popup);
+      return false;
     }
-  };
 
+  });
 }

@@ -1,19 +1,17 @@
 export default function mobEventScroll() {
-  $(document).ready(function() {
 
-    
-    if( $('.navigation-burger').offset().top > 60 ) {
-      $('.navigation-burger').addClass('scrolling');
-    }
-  	window.onscroll = function() {
+  let burg_elem = $('.navigation-burger');
+  
+  if (burg_elem.length) {
+    window.onscroll = function() {
       let burger_scrolled = window.pageYOffset || document.documentElement.scrollTop;
       if(burger_scrolled > 60 ) {
-        $('.navigation-burger').addClass('scrolling');
+        burg_elem.addClass('scrolling');
       } else {
-        $('.navigation-burger').removeClass('scrolling');
+        burg_elem.removeClass('scrolling');
       }
     };
 
-  });
-  
+  }
+    
 }

@@ -5,9 +5,10 @@ export default function initGallery() {
 
   let elem = document.querySelector('.gallery-wrap');
   if(elem) {
+
     let iso = new Isotope( elem, {
       itemSelector: '.gallery-item',
-      layoutMode: 'masonry',
+      layoutMode: 'fitRows',
       filter: '*',
       masonry: {
         columnWidth: '.gallery-item'
@@ -23,7 +24,10 @@ export default function initGallery() {
         transform: 'none'
       }
     });
-    iso.layout();
+    
+    setTimeout(function() {
+      iso.layout();
+    },20);
 
     let filtersElem = document.querySelector('.gallery-filter');
     filtersElem.addEventListener( 'click', function( event ) {
@@ -32,7 +36,8 @@ export default function initGallery() {
       iso.layout();
     });
 
-    var ajaxPagerLazyClass = 'lazy',
+    var ajaxPagerLoadingClass = 'ajax-pager-loading',
+      ajaxPagerLazyClass = 'lazy',
       ajaxPagerWrapClass = 'ajax-pager-wrap',
       ajaxPagerLinkClass = 'ajax-pager-link',
       ajaxPagerLoaderClass = 'loading',
@@ -40,21 +45,20 @@ export default function initGallery() {
       busy = false,
 
 
-      // attachScrollPagination = function(wrapperClass) {
-      //   var $wrapper = $('.' + wrapperClass),
-      //     $window = $(window);
+      attachScrollPagination = function(wrapperClass) {
+        var $wrapper = $('.' + wrapperClass),
+          $window = $(window);
 
-      //   if($wrapper.length && $('.' + ajaxPagerWrapClass).length && $('.' + ajaxPagerWrapClass).hasClass(ajaxPagerLazyClass)) {
-      //     $window.off('scroll.pagen').on('scroll.pagen', function() {
-      //       if(($window.scrollTop() + $window.height()) > ($wrapper.offset().top + $wrapper.height()) && !busy) {
-      //         busy = true;
-      //         $('.' + ajaxPagerLinkClass).click();
-      //         console.log('has click');
+        if($wrapper.length && $('.' + ajaxPagerWrapClass).length && $('.' + ajaxPagerWrapClass).hasClass(ajaxPagerLazyClass)) {
+          $window.off('scroll.pagen').on('scroll.pagen', function() {
+            if(($window.scrollTop() + $window.height()) > ($wrapper.offset().top + $wrapper.height()) && !busy) {
+              busy = true;
+              $('.' + ajaxPagerLinkClass).click();
 
-      //       }
-      //     });
-      //   }
-      // },
+            }
+          });
+        }
+      },
 
       ajaxPagination = function(e) {
         e.preventDefault();
@@ -69,25 +73,27 @@ export default function initGallery() {
         if($wrapper.length) {
           container.addClass(loadingClass);
           $.get($link.attr('href'), {'AJAX_PAGE' : 'Y'}, function(data) {
-            if(isHistoryApiAvailable()) {
-              if($link.attr('href') !== window.location) {
-                window.history.pushState(null, null, $link.attr('href'));
-              }
-            }
+            // if(isHistoryApiAvailable()) {
+            //   if($link.attr('href') !== window.location) {
+            //     window.history.pushState(null, null, $link.attr('href'));
+            //   }
+            // }
             
             $('.' + ajaxPagerWrapClass).remove();
             container.append(data);
 
             var h_gallery = document.querySelectorAll('.hide-gallery');
-            console.log(h_gallery.length);
             for (var i = 0, len = h_gallery.length; i<len; i++) {
               elem.appendChild(h_gallery[i]).classList.remove('hide-gallery');
             }
-            iso.appended( h_gallery );
-            iso.arrange();
-            iso.layout();
+            setTimeout(function() {
+              iso.appended( h_gallery );
+              iso.arrange();
+              iso.layout();
+            }, 50);
+
             if($('.' + ajaxPagerWrapClass).hasClass(ajaxPagerLazyClass)) {
-              // attachScrollPagination(wrapperClass);
+              attachScrollPagination(wrapperClass);
               busy = false;
             }
             container.removeClass(loadingClass);
@@ -97,13 +103,14 @@ export default function initGallery() {
         
       };
 
-    function isHistoryApiAvailable() {return!(!window.history||!history.pushState);}
+    // function isHistoryApiAvailable() {return!(!window.history||!history.pushState);}
 
     $(function() {
     
       if($('.'+ajaxPagerLinkClass).length && $('.'+ajaxPagerLinkClass).data(ajaxWrapAttribute).length) {
      
         if($('.' + ajaxPagerWrapClass).hasClass(ajaxPagerLazyClass)) {
+          attachScrollPagination($('.'+ajaxPagerLinkClass).data(ajaxWrapAttribute));
           busy = false;
         }
         $(document).off('click touchstart').on('click touchstart', '.' + ajaxPagerLinkClass, ajaxPagination);

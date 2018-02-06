@@ -60,7 +60,11 @@
 						transform: none
 						transition: opacity .3s, transform .4s
 						transition-delay: 0.2s * $i
-
+				.link-lang
+					visibility: visible
+					opacity: 1
+					transform: none
+					transition: transform .3s .15s, opacity .3s .15s, visibility 0s .1s
 			.pop-close
 				left: 27px
 				transform: rotate(45deg)
@@ -186,6 +190,22 @@
 				opacity: 0
 				transform: translateX(20px)
 				transition: transform .3s .1s, opacity .3s .1s
+			.link-lang
+				display: block
+				position: absolute
+				bottom: 40px
+				left: 40px
+				font-size: 12px
+				font-weight: normal
+				line-height: 1.67
+				letter-spacing: 3px
+				text-transform: uppercase
+				visibility: hidden
+				color: $color
+				transform: translateX(-20px)
+				transform-origin: 100% 0
+				opacity: 0
+				transition: transform .3s .1s, opacity .3s .1s, visibility 0s .3s
 
 .pop-close
 	display: block

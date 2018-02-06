@@ -1,4 +1,4 @@
-import validator from 'jquery-form-validator';
+import validator from 'jquery-form-validator/form-validator/jquery.form-validator.min.js';
 import autosize from 'autosize';
 
 export default function setInputFocus() {
@@ -43,7 +43,6 @@ export default function setInputFocus() {
       let _item = $(this);
       _item.on('click', function(e) {
         e.stopPropagation();
-        console.log('click');
         let value = $(this).text(),
           parent = $(this).closest('.select');
         parent.find('.select-link').text(value);

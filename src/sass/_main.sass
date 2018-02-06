@@ -5,7 +5,7 @@
 @import components/cap
 @import components/shareblock
 @import components/sliders
-
+@import components/pageLoader
 
 .ui-block
 	padding: 10px
@@ -161,6 +161,8 @@
 			padding-top: 50px
 			padding-bottom: 130px
 			opacity: 1
+			.input-item
+				opacity: 1
 	.ajax-pager-wrap
 		position: absolute
 		bottom: 40px
@@ -512,25 +514,48 @@
 	align-items: stretch
 	+r(550)
 		padding-bottom: 150px
+	.navigation-link
+		bottom: 0
+		right: 0
+		position: absolute
+		line-height: 1.67;
+		+r(550)
+			left: 0
+			right: auto
+			margin: 0 2%
+		&__item
+			font-size: 12px
+			color: $link-color
+			&:not(:last-child)
+				margin-right: 20px
+			&:after
+				background: $link-color !important
+			&:hover
+				color: #fff 
+				&:after
+					background: #fff !important
+	.navigation-link-wrap:hover .navigation-link__item:first-child:not(:hover):after
+		background: #fff !important
+
 	.swiper-wrapper
 		height: 100%
 		// +r(450)
 		// 	height: 500px
 		.swiper-slide
 			height: 100%
-			width: 100%
-			max-width: 50%
+			width: auto
+			// width: 100%
+			// max-width: 50%
 			overflow: hidden
-			+r(768)
-				max-width: 80%
-			+r(550)
-				max-width: 100%
+			// +r(768)
+			// 	max-width: 80%
+			// +r(550)
+			// 	max-width: 100%
 			.item
-				width: 100%
 				height: 100%
 			img
 				height: 100%
-				width: 100%
+				width: auto
 				object-fit: cover
 			&.swiper-slide-video
 				max-width: 98%
