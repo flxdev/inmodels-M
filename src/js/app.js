@@ -290,8 +290,9 @@ $(document).ready(function() {
 
   BarbaWitget.init();
 
-  window.onload = () => {
-    scrollAnimations();
-    
-  };
+
 });
+window.onload = () => {
+  scrollAnimations();
+  window.DOM.body.removeClass('loading');
+};

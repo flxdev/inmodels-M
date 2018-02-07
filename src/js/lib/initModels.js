@@ -160,8 +160,8 @@ export default function initModels() {
             for (var i = 0, len = h_model.length; i<len; i++) {
               elem.appendChild(h_model[i]).classList.remove('hide-model');
             }
+            iso.appended( h_model );
             setTimeout(function() {
-              iso.appended( h_model );
               iso.arrange();
               iso.layout();
             }, 50);
