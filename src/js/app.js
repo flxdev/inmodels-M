@@ -83,13 +83,13 @@ var BarbaWitget = {
             delay: this.delay,
             className: '+=page-load'
           })
-          .to(window.DOM.pageLoaderW, 0.4, {
+          .to(window.DOM.pageLoaderW, 0.5, {
             scaleY: 1,
           })
           .set(window.DOM.menu, {
             className: '-=hide-anim'
           })
-          .to(window.DOM.pageLoaderB, 0.4, {
+          .to(window.DOM.pageLoaderB, 0.6, {
             scaleY: 1,
           });
         return deferred.promise;
@@ -99,9 +99,9 @@ var BarbaWitget = {
         const _this = this;
         let newCont = $(this.newContainer);
         let oldCont = $(this.oldContainer);
-        let blockContent = newCont.find('.block-content');
+        let blockContent = newCont.find('.block-load');
         window.scroll(0, 0);
-        window.DOM.hideScroll();
+        // window.DOM.hideScroll();
         let tlIn = new TimelineMax();
         tlIn
           .set(oldCont,{
@@ -114,19 +114,20 @@ var BarbaWitget = {
               
               tlIn
                 .set(blockContent, {
-                  y: 150,
+                  y: 50,
                   autoAlpha: 0,
-                })
-                .to(window.DOM.pageLoaderB, 0.4, {
-                  scaleY: 0,
-                  transformOrigin:'top center',
-                  // clearProps:'all'
                 })
                 .to(window.DOM.pageLoaderW, 0.4, {
                   scaleY: 0,
                   transformOrigin:'top center',
                   
                 })
+                .to(window.DOM.pageLoaderB, 0.4, {
+                  scaleY: 0,
+                  transformOrigin:'top center',
+                  // clearProps:'all'
+                })
+                
                 .to(blockContent, 0.5, {
                   y: 0,
                   autoAlpha: 1,
@@ -143,7 +144,7 @@ var BarbaWitget = {
                       .set(window.DOM.pageLoader, {
                         className: '-=page-load'
                       });
-                    window.DOM.showScroll();
+                    // window.DOM.showScroll();
                   }
                 });
 
