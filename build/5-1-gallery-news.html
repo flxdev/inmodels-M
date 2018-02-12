@@ -91,6 +91,9 @@
     </script>
     <div class="svg-defs-container" style="display: none;">
       <svg xmlns="http://www.w3.org/2000/svg">
+        <symbol id="back" viewBox="0 0 20 19.97">
+          <path fill="#4c4644" d="M1.42 11.42l8.6 8.59 1.41-1.41-7.59-7.59h16.18v-2H3.84l7.6-7.6-1.42-1.4-10 10 1.4 1.42z" />
+        </symbol>
         <symbol id="carret" viewBox="0 0 16 8.98">
           <path fill="currentcolor" d="M8 0L0 8.21l.75.77L8 1.54l7.25 7.44.75-.77L8 0z" data-name="UI Kit" />
         </symbol>
@@ -141,11 +144,24 @@
             <!--BEGIN header-->
             <div class="header-inner">
               <div class="navigation">
-                <div class="navigation-burger js-popup-button" title="menu" data-modal="modal-menu">
-                  <span class="navigation-burger__item"></span>
-                  <span class="navigation-burger__item"></span>
-                  <span class="navigation-burger__item"></span>
+                <div class="navigation-burger navigation-btn-scrl js-popup-button" title="menu" data-modal="modal-menu">
+                  <div class="navigation-burger__inner">
+                    <div class="navigation-burger__icon">
+                      <span class="navigation-burger__item"></span>
+                      <span class="navigation-burger__item"></span>
+                      <span class="navigation-burger__item"></span>
+                    </div>
+                  </div>
                 </div>
+                <a class="navigation-back navigation-btn-scrl" href="/2-0-models.html">
+                  <div class="navigation-back__inner">
+                    <div class="navigation-back__icon">
+                      <svg class="back">
+                        <use xlink:href="#back"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </a>
                 <a class="navigation-search" href="#search-block">
                   <svg class="loupe">
                     <use xlink:href="#loupe"></use>
@@ -269,10 +285,10 @@
                   </a>
                 </li>
                 <li class="pages-links__item">
-                  <a class="navigation-link__item modal-link" href="./6-0-contacts.html">Business request</a>
+                  <a class="navigation-link__item modal-link" href="./7-0-Become-model.html">Become a model</a>
                 </li>
                 <li class="pages-links__item">
-                  <a class="navigation-link__item modal-link" href="./7-0-Become-model.html">Become a model</a>
+                  <a class="navigation-link__item modal-link" href="./6-0-contacts.html">Business request</a>
                 </li>
               </ul>
             </div>

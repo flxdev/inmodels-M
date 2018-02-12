@@ -14,13 +14,9 @@
 	position: relative
 	z-index: 4
 	&-burger		
-		display: flex
-		flex-direction: column
-		justify-content: space-between
-		align-items: stretch
 		width: 100px
-		height: 100px
-		padding: 40px
+		//height: 100px
+		//padding: 40px
 		background-color: transparent
 		cursor: pointer
 		visibility: visible
@@ -30,9 +26,21 @@
 		left: 0
 		opacity: 1
 		transition: opacity .3s .3s, visibility 0s .2s, background-color .3s, box-shadow .3s
-		&.scrolling
-			background-color: $bg-brend
-			box-shadow: 0 2px 20px 0 rgba(76, 70, 68, 0.2)
+		&__inner
+			width: 100%
+			padding-bottom: 100%
+			position: relative
+		&__icon
+			display: flex
+			flex-direction: column
+			justify-content: space-between
+			align-items: stretch
+			width: 20px
+			height: 20px
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
 		&__item
 			display: block
 			width: 100%
@@ -40,6 +48,47 @@
 			background-color: $color
 			transform: none
 			transition: transform .35s .6s ease-out
+		&.scrolling
+			background-color: $bg-brend
+			box-shadow: 0 2px 20px 0 rgba(76, 70, 68, 0.2)
+		&.hide-nav-burger
+			visibility: hidden
+			transition: opacity 0s 0s, visibility 0s 0s
+		+r(480)
+			width: 21vw
+
+	&-back
+		display: block
+		width: 100px
+		cursor: pointer
+		visibility: hidden
+		position: absolute
+		top: 0
+		left: 0
+		opacity: 0
+		transform: translateX(20px)
+		&__inner
+			width: 100%
+			padding-bottom: 100%
+			position: relative
+		&__icon
+			width: 20px
+			height: 20px
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+		&.scrolling
+			background-color: $bg-brend
+			box-shadow: 0 2px 20px 0 rgba(76, 70, 68, 0.2)
+		&.view-nav-back
+			opacity: 1
+			transform: none
+			visibility: visible
+			transition: opacity .3s 1.2s, transform .4s 1.2s, visibility 0s 1s
+		+r(480)
+			width: 21vw
+
 		
 	// &-lang
 	// 	display: block

@@ -103,14 +103,26 @@
 		margin: 0 -5px
 		position: relative
 		padding-bottom: 80px
+		width: 100%
+		+r(768)
+			margin: 0
 		.models-item
 			// display: inline-block
 			width: calc(50% - 10px)
 			position: relative
 			margin: 5px
 			font-size: 0
+			overflow: hidden
 			+r(768)
+				margin: 5px 0
 				width: 100%
+				
+			&__img
+				background-color: red
+				font-size: 0
+				img
+					display: block
+					object-fit: cover
 			&__title
 				color: #ffffff
 				font-size: 36px
@@ -119,7 +131,7 @@
 				margin-top: auto
 				margin-bottom: 0
 				padding-bottom: 10px
-				transform: translateY(10px)
+				// transform: translateY(10px)
 				opacity: 0
 				transition: transform .2s 0s, opacity .2s 0s
 				overflow: hidden
@@ -128,21 +140,23 @@
 					font-size: 26px
 			&__info
 				position: absolute
-				top: 0
-				left: 0
-				right: 0
 				bottom: 0
-				padding: 10px
+				left: 0
+				width: 100%
+				height: 100%
+				padding: 10px 15px
 				display: flex
-				background-color: rgba($color, .5)
+				background-color: rgba(#000000, .5)
 				opacity: 0
 				transition: opacity .4s
-				&:hover
+				font-size: 0
+			&:hover
+				.models-item__info
 					opacity: 1
-					.models-item__title
-						opacity: 1
-						transition: transform .3s .2s, opacity .2s .2s
-						transform: none
+				.models-item__title
+					opacity: 1
+					transition: transform .3s .2s, opacity .2s .2s
+					transform: none
 			&.in-view
 				.models-item__info
 					opacity: 1
@@ -203,8 +217,8 @@
 		margin: 0 -10px
 		position: relative
 		margin-bottom: 120px
-		// +r(768)
-		// 	margin: 0
+		+r(768)
+			margin: 0
 		.gallery-item
 			// display: inline-block
 			width: calc(50% - 10px)
@@ -213,8 +227,12 @@
 			font-size: 0
 			+r(768)
 				width: 100%
+				margin: 5px 0
 			&.hide-gallery
 				border: 1px solid red
+			&__img
+				img
+					display: block
 			&__date
 				color: rgba(#ffffff, .6)
 				font-size: 14px
@@ -547,12 +565,12 @@
 			height: 100%
 			width: 100%
 			// width: 100%
-			// max-width: 50%
+			max-width: 44%
 			overflow: hidden
-			// +r(768)
-			// 	max-width: 80%
-			// +r(550)
-			// 	max-width: 100%
+			+r(768)
+				max-width: 62%
+			+r(550)
+				max-width: 82%
 			.item
 				height: 100%
 			img
@@ -593,11 +611,11 @@
 			left: 0
 			width: 100%
 			background: transparent
-			height: 2px;
+			height: 2px
 			+r(550)
 				bottom: 120px
 			.swiper-scrollbar-drag
-				height: 100%
+				height: 2px
 				position: relative
 				background: #ffffff
 				left: 0

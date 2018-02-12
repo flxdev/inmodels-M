@@ -3,7 +3,7 @@ import Isotope from 'isotope-layout/dist/isotope.pkgd.js';
 export default function initModels() {
 
   var scrolled;
-  let burg_elem = $('.navigation-burger');
+  let burg_elem = $('.navigation-btn-scrl');
   $(document).ready(function() {
     window.onscroll = function() {
       scrolled = window.pageYOffset || document.documentElement.scrollTop;  
@@ -86,17 +86,22 @@ export default function initModels() {
         }
       });
       let searchField = document.querySelector('.form-search');
-      if(iso.filteredItems.length < 1) {
-        searchField.classList.add('not-found');
-        let searchFieldValue = $quicksearch.val();
-        $('.not-found-result').text('"' + searchFieldValue + '"');
-      } else {
-        searchField.classList.remove('not-found');
-      }
+      searchField.classList.remove('not-found');
+      $('.stamp-models').removeClass('hide-stamp re-stamp');
+      iso.stamp('.stamp-models');
       iso.arrange();
       iso.layout();
     }, 200 ));
     
+    $('.clear-bttn').on('click touchstart', function() {
+      let parent = $(this).parent(),
+        inpt = parent.find('input'),
+        inpt_val = inpt.val();
+      if(!inpt_val) {
+        $(this).parents('.active').removeClass('active');
+      }
+    });
+
     //debounce so filtering doesn't happen every millisecond
     function debounce( fn, threshold ) {
       let timeout;

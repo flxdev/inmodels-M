@@ -1,17 +1,18 @@
 //BEGIN header
 .header-inner
 	.navigation
-		.navigation-burger.js-popup-button(title="menu", data-modal='modal-menu')
-			span.navigation-burger__item
-			span.navigation-burger__item
-			span.navigation-burger__item
-		//- a.navigation-lang(href="#") рус
-		//- a(href="/home.html").navigation-logo
-		//- 	+icon('logo')
+		.navigation-burger.navigation-btn-scrl.js-popup-button(title="menu", data-modal='modal-menu')
+			.navigation-burger__inner
+				.navigation-burger__icon
+					span.navigation-burger__item
+					span.navigation-burger__item
+					span.navigation-burger__item
+		a(href="/2-0-models.html").navigation-back.navigation-btn-scrl
+			.navigation-back__inner
+				.navigation-back__icon
+					+icon('back')
+
 		a.navigation-search(href="#search-block")
 			+icon('loupe')
-		//- .navigation-link.header-links
-		//- 	.navigation-link-wrap
-		//- 		a.navigation-link__item(href="/6-0-contacts.html") Business request
-		//- 		a.navigation-link__item(href="/7-0-Become-model.html") Become a model
+		
 //END header

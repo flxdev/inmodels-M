@@ -7,6 +7,8 @@ window.DOM = {
   navLang: $('.header-links'),
   navLogo: $('.navigation-logo'),
   navSearch: $('.navigation-search'),
+  navBurger: $('.navigation-burger'),
+  navBack: $('.navigation-back'),
   headerLinks: $('.navigation-lang'),
   docLang: $('html').attr('lang'),
   menu: $('.js-popup-container'),

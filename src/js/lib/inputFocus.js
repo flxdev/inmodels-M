@@ -1,6 +1,6 @@
 import validator from 'jquery-form-validator/form-validator/jquery.form-validator.min.js';
 import autosize from 'autosize';
-import inputmask from 'inputmask/dist/min/jquery.inputmask.bundle.min.js';
+// import inputmask from 'inputmask/dist/min/jquery.inputmask.bundle.min.js';
 
 
 export default function setInputFocus() {
@@ -13,9 +13,13 @@ export default function setInputFocus() {
         if(!_t.hasClass('focus')) {
           $(this).addClass('focus');
           $(this).find('input').focus();
+        } else {
+          if(_t.hasClass('select')) {
+            _t.removeClass('focus');
+          }
         }
       });
-      $(document).on('click', function(e) {
+      $(document).on('click touchstart', function(e) {
         if (!_t.is(e.target) && _t.has(e.target).length === 0) {
           _t.removeClass('focus');
         }
@@ -43,7 +47,7 @@ export default function setInputFocus() {
   if(select_item.length) {
     select_item.each(function() {
       let _item = $(this);
-      _item.on('click', function(e) {
+      _item.on('click touchstart', function(e) {
         e.stopPropagation();
         let value = $(this).text(),
           parent = $(this).closest('.select');
@@ -56,15 +60,19 @@ export default function setInputFocus() {
   }
   autosize($('textarea'));
 
+  // $('input[type="tel"]').on('click touchstart', function() {
+  //   $(this).inputmask({
+  //     'mask': '8 (999) 999-99-99',
+  //     showMaskOnFocus: true,
+  //     showMaskOnHover: false,
+  //   });
+  // });
+
   $('input[type="tel"]').on('click', function() {
-    $(this).inputmask({
-      'mask': '8 (999) 999-99-99',
-      showMaskOnFocus: true,
-      showMaskOnHover: false,
-    });
+    $(this).val('+');
   });
 
-  $('button[type="submit"]').on('click', function() {
+  $('button[type="submit"]').on('click touchstart', function() {
     let error_l;
     setTimeout(function() {
       let error_l = $('.error').length;

@@ -19,6 +19,10 @@ var cbk = function(e) {
   if(e.currentTarget.href === window.location.href) {
     e.preventDefault();
     e.stopPropagation();
+    $('.modal-layout').removeClass('active');
+    setTimeout(function() {
+      window.DOM.showScroll();
+    },5);
   }
 };
 function preventDbClick() {
@@ -259,8 +263,15 @@ var innerModel = Barba.BaseView.extend({
     initInnerSlider();
     youtubeVideo();
     mobEventScroll();
+    $('.inner-wrap').addClass('active');
+    window.DOM.navBurger.addClass('hide-nav-burger');
+    window.DOM.navBack.addClass('view-nav-back');
   },
   onLeave: function() {
+    setTimeout(function() {
+      window.DOM.navBurger.removeClass('hide-nav-burger');
+      window.DOM.navBack.removeClass('view-nav-back');
+    }, 500);
   },
   onLeaveComplete: function() {
   }

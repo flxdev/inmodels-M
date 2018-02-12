@@ -1,6 +1,6 @@
 export default function mobEventScroll() {
 
-  let burg_elem = $('.navigation-burger');
+  let burg_elem = $('.navigation-btn-scrl');
   
   if (burg_elem.length) {
     window.onscroll = function() {
