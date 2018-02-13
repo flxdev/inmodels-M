@@ -68,8 +68,11 @@ export default function setInputFocus() {
   //   });
   // });
 
-  $('input[type="tel"]').on('click', function() {
-    $(this).val('+');
+  $('input[type="tel"]').on('click touchstart', function() {
+    let i_val =  $(this).val();
+    if(!i_val) {
+      $(this).val('+');
+    }
   });
 
   $('input[type="tel"]').on('blur', function() {

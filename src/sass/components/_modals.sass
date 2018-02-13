@@ -54,7 +54,7 @@
 					transform: none
 					opacity: 1
 					transition: transform .3s .25s, opacity .3s .25s
-				@for $i from 1 to 7
+				@for $i from 1 to 12
 					.pages-links__item:nth-child(n+#{$i})
 						opacity: 1
 						transform: none
@@ -117,9 +117,12 @@
 			z-index: 2
 			transition: background-color .3s 0s
 			.pages-links
-				padding-top: 130px
+				padding-top: 110px
 				padding-left: 30px
-				padding-bottom: 50px
+				padding-right: 60px
+				padding-bottom: 15px
+				height: 100%
+				overflow: hidden
 				+r(400)
 					padding-top: 80px
 				ul
@@ -127,11 +130,13 @@
 					li
 						margin-bottom: 40px
 						&:last-child
-							margin-bottom: 50px
+							margin-bottom: 15px
 						+r(400)
 							margin-bottom: 20px
-							&:last-child
-								margin-bottom: 35px
+							
+				&-inner
+					height: 100%
+					overflow-y: auto
 				&__item
 					display: block
 					font-weight: 200
@@ -141,13 +146,27 @@
 					z-index: 1
 					transform: translateY(20px)
 					transition: opacity .1s .0s, transform .0s .1s, font-size .3s
+					.modal-link
+						color: $color
 					span
 						font-size: 50px
 						color: $color
 						transition: opacity .35s .1s
 						+r(400)
-							font-size: 34px
-					
+							font-size: 30px
+							line-height: 1
+				&--social
+					position: relative
+					&:before
+						content: ''
+						display: block
+						width: 100%
+						height: 1px
+						background-color: $link-color
+						opacity: .4
+						margin-bottom: 35px
+						margin-top: 35px
+
 			.navigation-link
 				width: 100%
 				text-align: center
@@ -185,6 +204,9 @@
 				height: 20px
 				width: 112px
 				position: absolute
+				color: $color
+				svg
+					fill: $color
 				top: 30px
 				right: 30px
 				opacity: 0
@@ -192,11 +214,9 @@
 				transition: transform .3s .1s, opacity .3s .1s
 			.link-lang
 				display: block
-				position: absolute
-				bottom: 25px
-				left: 30px
 				font-size: 12px
 				font-weight: normal
+				margin-top: 35px
 				line-height: 1.67
 				letter-spacing: 3px
 				text-transform: uppercase
