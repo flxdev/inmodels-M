@@ -73,6 +73,10 @@
 		height: 20px
 		width: 112px
 		margin: 0 0 0 auto
+	+r(450)
+		padding: 30px 40px 80px 40px
+	+r(400)
+		padding: 25px 40px 85px 40px
 
 .aside
 	.contacts-wrap
@@ -225,6 +229,7 @@
 			position: relative
 			margin: 5px
 			font-size: 0
+			overflow: hidden
 			+r(768)
 				width: 100%
 				margin: 5px 0
@@ -269,23 +274,28 @@
 				display: flex
 				flex-direction: column
 				justify-content: space-between
-				background-color: rgba($color, .6)
+				background-color: rgba(#000000, .5)
 				opacity: 0
 				transition: opacity .4s
-				&:hover
+			img
+				transition: transform .4s
+			&:hover
+				.gallery-item__info
 					opacity: 1
-					.gallery-item__date
-						opacity: 1
-						transition: transform .3s .2s, opacity .2s .2s
-						transform: none
-					.gallery-item__title
-						opacity: 1
-						transition: transform .3s .2s, opacity .2s .2s
-						transform: none
-					.gallery-item__short
-						opacity: 1
-						transition: transform .3s .3s, opacity .2s .3s
-						transform: none
+				.gallery-item__date
+					opacity: 1
+					transition: transform .3s .2s, opacity .2s .2s
+					transform: none
+				.gallery-item__title
+					opacity: 1
+					transition: transform .3s .2s, opacity .2s .2s
+					transform: none
+				.gallery-item__short
+					opacity: 1
+					transition: transform .4s .3s, opacity .3s .3s
+					transform: none
+				img
+					transform: scale(1.03)
 
 .gallery-news
 	& &-title

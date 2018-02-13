@@ -1,4 +1,4 @@
-// import Isotope from 'isotope-layout/dist/isotope.pkgd.js';
+import Isotope from 'isotope-layout/dist/isotope.pkgd.js';
 import Swiper from 'swiper/dist/js/swiper.min.js';
 
 export default function initGallery() {

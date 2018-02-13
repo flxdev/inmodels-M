@@ -72,6 +72,14 @@ export default function setInputFocus() {
     $(this).val('+');
   });
 
+  $('input[type="tel"]').on('blur', function() {
+    let i_val =  $(this).val();
+    console.log(i_val);
+    if(i_val === '+') {
+      $(this).val('');
+    }
+  });
+
   $('button[type="submit"]').on('click touchstart', function() {
     let error_l;
     setTimeout(function() {
