@@ -18,9 +18,10 @@
 		bottom: 0
 		top: 0
 		pointer-events: all
+		+nosel
 		// width: 100%
 		// height: 100%
-		padding: 5px
+		padding: 10px
 		z-index: 4
 		transition: visibility 0s .3s
 		&.active
@@ -37,6 +38,9 @@
 				&-inner
 					background-color: #ffffff
 					transition-delay: .2s
+					.pages-links
+						&-inner
+							pointer-events: all
 				.navigation-link
 					&.quest-links
 						transform: none
@@ -50,10 +54,7 @@
 					transform: rotate(-90deg) translateY(0)
 					opacity: 1
 					transition: transform .3s .15s, opacity .3s .15s
-				.link-logo
-					transform: none
-					opacity: 1
-					transition: transform .3s .25s, opacity .3s .25s
+				
 				@for $i from 1 to 12
 					.pages-links__item:nth-child(n+#{$i})
 						opacity: 1
@@ -65,21 +66,28 @@
 					opacity: 1
 					transform: none
 					transition: transform .3s .15s, opacity .3s .15s, visibility 0s .1s
-			.pop-close
-				left: 27px
-				transform: rotate(45deg)
-				opacity: 1
-				transition-delay: .25s, .25s, .25s
+				.link-logo
+					transform: none
+					opacity: 1
+					transition: transform .3s .25s, opacity .3s .25s
+				.pop-close
+					left: 27px
+					transform: rotate(45deg)
+					opacity: 1
+					transition-delay: .25s, .25s, .25s
 	&-container
 		background-color: $bg-color
 		width: 100%
 		height: 100%
 	&-menu
+		
 		position: relative
 		background-color: transparent
 		vertical-align: middle
 		text-align: center
 		overflow: hidden
+		padding-top: 80px
+		padding-bottom: 15px
 		&__l-1,&__l-2
 			position: absolute
 			top: 0
@@ -116,27 +124,27 @@
 			position: relative
 			z-index: 2
 			transition: background-color .3s 0s
-			.pages-links
-				padding-top: 110px
-				padding-left: 30px
-				padding-right: 60px
-				padding-bottom: 15px
-				height: 100%
-				overflow: hidden
-				+r(400)
-					padding-top: 80px
-				ul
-					text-align: left
-					li
-						margin-bottom: 40px
-						&:last-child
-							margin-bottom: 15px
-						+r(400)
-							margin-bottom: 20px
+			overflow-y: auto
+			overflow-x: hidden
+			-webkit-overflow-scrolling: touch
+			+nosel
+			padding-top: 60px
+			padding-right: 60px
+			padding-left: 30px
+			+r(450)
+				padding-top: 30px
+			ul
+				text-align: left
+				li
+					margin-bottom: 40px
+					&:last-child
+						margin-bottom: 15px
+					+r(400)
+						margin-bottom: 30px
+					+r(350)
+						margin-bottom: 20px
 							
-				&-inner
-					height: 100%
-					overflow-y: auto
+			.pages-links
 				&__item
 					display: block
 					font-weight: 200
@@ -152,7 +160,7 @@
 						font-size: 50px
 						color: $color
 						transition: opacity .35s .1s
-						+r(400)
+						+r(450)
 							font-size: 30px
 							line-height: 1
 				&--social
@@ -185,33 +193,8 @@
 
 					.navigation-link__item
 						display: inline-block
-			.link-dev
-				color: $disable-color
-				font-size: 12px
-				line-height: 1.67
-				letter-spacing: 3px
-				text-transform: uppercase
-				font-weight: normal
-				position: absolute
-				bottom: 190px
-				transform: rotate(-90deg) translateY(20px)
-				transform-origin: 100% 0
-				right: 45px
-				opacity: 0
-				transition: transform .3s .1s, opacity .3s .1s
-			.link-logo
-				display: block
-				height: 20px
-				width: 112px
-				position: absolute
-				color: $color
-				svg
-					fill: $color
-				top: 30px
-				right: 30px
-				opacity: 0
-				transform: translateX(20px)
-				transition: transform .3s .1s, opacity .3s .1s
+			
+			
 			.link-lang
 				display: block
 				font-size: 12px
@@ -226,18 +209,48 @@
 				transform-origin: 100% 0
 				opacity: 0
 				transition: transform .3s .1s, opacity .3s .1s, visibility 0s .3s
+		.link-logo
+			display: block
+			height: 20px
+			width: 112px
+			position: absolute
+			color: $color
+			z-index: 3
+			svg
+				fill: $color
+			top: 30px
+			right: 30px
+			opacity: 0
+			transform: translateX(20px)
+			transition: transform .3s .1s, opacity .3s .1s
 
-.pop-close
-	display: block
-	width: 26px
-	height: 26px
-	cursor: pointer
-	position: absolute
-	z-index: 3
-	top: 27px
-	left: -26px
-	opacity: 0
-	transform: rotate(-180deg)
-	transition: opacity .3s .1s, left .3s .1s, transform .3s .1s
-	-webkit-font-smoothing: antialiased
+		.link-dev
+			color: $disable-color
+			font-size: 12px
+			line-height: 1.67
+			letter-spacing: 3px
+			text-transform: uppercase
+			font-weight: normal
+			position: absolute
+			bottom: 190px
+			transform: rotate(-90deg) translateY(20px)
+			transform-origin: 100% 0
+			right: 45px
+			opacity: 0
+			z-index: 3
+			transition: transform .3s .1s, opacity .3s .1s
+
+		.pop-close
+			display: block
+			width: 26px
+			height: 26px
+			cursor: pointer
+			position: absolute
+			z-index: 3
+			top: 27px
+			left: -26px
+			opacity: 0
+			transform: rotate(-180deg)
+			transition: opacity .3s .1s, left .3s .1s, transform .3s .1s
+			-webkit-font-smoothing: antialiased
 	

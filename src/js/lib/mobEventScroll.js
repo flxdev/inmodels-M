@@ -5,7 +5,7 @@ export default function mobEventScroll() {
   if (burg_elem.length) {
     window.onscroll = function() {
       let burger_scrolled = window.pageYOffset || document.documentElement.scrollTop;
-      if(burger_scrolled > 60 ) {
+      if(burger_scrolled > 100 ) {
         burg_elem.addClass('scrolling');
       } else {
         burg_elem.removeClass('scrolling');

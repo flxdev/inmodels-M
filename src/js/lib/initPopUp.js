@@ -78,6 +78,7 @@ export default function initPopUp() {
       _this.f.openPopup(_popup);
       return false;
     }
-
   });
+
+
 }

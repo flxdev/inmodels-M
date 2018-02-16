@@ -178,7 +178,7 @@ var index = Barba.BaseView.extend({
   onEnter: function() {
   },
   onEnterCompleted: function() {
-    initIndexSlider();
+    // initIndexSlider();
   },
   onLeave: function() {
   },

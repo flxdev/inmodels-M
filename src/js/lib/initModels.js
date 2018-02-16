@@ -48,23 +48,6 @@ export default function initModels() {
       });
       let searchField = document.querySelector('.form-search');
       let filterLength = iso.filteredItems.length;
-      // switch(filterLength) {
-      //   case 3:
-      //     $('.stamp-models').removeClass('hide-stamp').addClass('re-stamp');
-      //     iso.stamp('.stamp-models');
-      //     searchField.classList.remove('not-found');
-      //     break;
-      //   case 2:
-      //   case 1:
-      //     $('.stamp-models').addClass('hide-stamp');
-      //     iso.unstamp('.stamp-models');
-      //     searchField.classList.remove('not-found');
-      //     break;
-      //   default:
-      //     $('.stamp-models').removeClass('hide-stamp re-stamp');
-      //     iso.stamp('.stamp-models');
-      //     break;
-      // }
       if(iso.filteredItems.length < 1) {
         searchField.classList.add('not-found');
         let searchFieldValue = $quicksearch.val();
@@ -78,7 +61,8 @@ export default function initModels() {
     
 
     let clr_bttn = $('.clear-bttn').on('click', debounce( function() {
-      $('.clear-bttn').parent().removeClass('editing').find('input').val('').focus();
+      $(clr_bttn).parents('.active').removeClass('active');
+      $(clr_bttn).parent().removeClass('editing').find('input').val('').blur();
       let qsRegex = new RegExp( $quicksearch.val(), 'gi' );
       iso.arrange({
         filter: function(itemElem) {
