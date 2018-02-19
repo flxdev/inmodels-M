@@ -27,7 +27,7 @@ export default function initGallery() {
     
     setTimeout(function() {
       iso.layout();
-    },20);
+    },50);
 
     let filtersElem = document.querySelector('.gallery-filter');
     filtersElem.addEventListener( 'click', function( event ) {

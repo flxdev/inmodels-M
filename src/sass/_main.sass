@@ -345,11 +345,13 @@
 				opacity: 1
 				transform: none
 	.share-block
-		padding: 75px 20px 80px 20px
+		padding: 45px 20px 40px 20px
+		&__title
+			margin-bottom: 50px
 		&__link
-			margin-bottom: 150px
+			margin-bottom: 80px
 			a:not(:last-child)
-				margin-bottom: 30px
+				margin-bottom: 20px
 
 
 .about-content
@@ -625,20 +627,20 @@
 						margin: 0 
 						margin-top: 30px
 	&.swiper-container-horizontal
-		& >.swiper-scrollbar.inner-slider-bar
-			bottom: 70px
-			left: 0
-			width: 100%
-			background: transparent
-			height: 2px
-			+r(550)
-				bottom: 120px
-			.swiper-scrollbar-drag
-				height: 2px
-				position: relative
-				background: #ffffff
-				left: 0
-				top: 0
+		// & >.swiper-scrollbar.inner-slider-bar
+		// 	bottom: 70px
+		// 	left: 0
+		// 	width: 100%
+		// 	background: transparent
+		// 	height: 2px
+		// 	+r(550)
+		// 		bottom: 120px
+			// .swiper-scrollbar-drag
+			// 	height: 2px
+			// 	position: relative
+			// 	background: #ffffff
+			// 	left: 0
+			// 	top: 0
 		.swiper-pagination
 			visibility: hidden
 			display: none
@@ -646,7 +648,7 @@
 		.swiper-navigation
 			position: absolute
 			text-align: left
-			bottom: 30px
+			bottom: 40px
 			left: 0
 			display: flex
 			justify-content: space-between
@@ -654,7 +656,7 @@
 			+r(550)
 				flex-wrap: wrap
 				justify-content: flex-start
-				bottom: 25px
+				bottom: 40px
 			.slide-target
 				display: inline-block
 				background-color: transparent

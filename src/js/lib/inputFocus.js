@@ -1,7 +1,5 @@
 import validator from 'jquery-form-validator/form-validator/jquery.form-validator.min.js';
-import autosize from 'autosize';
-// import inputmask from 'inputmask/dist/min/jquery.inputmask.bundle.min.js';
-
+// import autosize from 'autosize';
 
 export default function setInputFocus() {
   
@@ -21,7 +19,7 @@ export default function setInputFocus() {
       });
       $(document).on('click touchstart', function(e) {
         if (!_t.is(e.target) && _t.has(e.target).length === 0) {
-          _t.removeClass('focus');
+          _t.removeClass('focus').blur();
         }
       }); 
     });
@@ -58,17 +56,17 @@ export default function setInputFocus() {
       });
     });
   }
-  autosize($('textarea'));
 
-  // $('input[type="tel"]').on('click touchstart', function() {
-  //   $(this).inputmask({
-  //     'mask': '8 (999) 999-99-99',
-  //     showMaskOnFocus: true,
-  //     showMaskOnHover: false,
-  //   });
-  // });
+  $('textarea').each(function() {
+    this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+  }).on('input', function() {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
+  });
 
-  $('input[type="tel"]').on('click touchstart', function() {
+  // autosize($('textarea'));
+
+  $('input[type="tel"]').on('click', function() {
     let i_val =  $(this).val();
     if(!i_val) {
       $(this).val('+');

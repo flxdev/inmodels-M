@@ -91,6 +91,8 @@ var BarbaWitget = {
             .to(window.DOM.pageLoaderB, 0.6, {
               scaleY: 1,
             });
+          window.DOM.showScroll();
+           
         } else {
           tl
             .set(window.DOM.pageLoader, {
@@ -178,7 +180,7 @@ var index = Barba.BaseView.extend({
   onEnter: function() {
   },
   onEnterCompleted: function() {
-    // initIndexSlider();
+    initIndexSlider();
   },
   onLeave: function() {
   },

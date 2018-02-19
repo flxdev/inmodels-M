@@ -37,7 +37,10 @@ export default function initModels() {
         transform: 'none'
       }
     });
-    iso.layout();
+    
+    setTimeout(function() {
+      iso.layout();
+    },50);
 
     let $quicksearch = $('#searching').on('keyup', debounce( function() {
       let qsRegex = new RegExp( $quicksearch.val(), 'gi' );

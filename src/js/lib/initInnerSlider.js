@@ -93,10 +93,10 @@ export default function initInnerSlider() {
       //   sensitivity: 1.2,
       //   eventsTarged: '.block-inner'
       // },
-      scrollbar: {
-        el: '.swiper-scrollbar',
-        hide: false,
-      },
+      // scrollbar: {
+      //   el: '.swiper-scrollbar',
+      //   hide: false,
+      // },
     });
 
     swiper.on('progress',debounce(() => {

@@ -55,6 +55,7 @@ window.DOM = {
     this.bodyScrollTop && (window.scroll(0, this.bodyScrollTop));
     this.bodyScrollTop = null;
     this.body[0].style.paddingRight = '';
+    this.body.css('top', '');
     $('.js-stick').trigger('sticky_kit:recalc'); 
   },
   addListenerMulti(el, s, fn) {
