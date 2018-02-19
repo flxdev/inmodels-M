@@ -37,7 +37,7 @@ export default function initModels() {
         transform: 'none'
       }
     });
-    
+
     setTimeout(function() {
       iso.layout();
     },50);
@@ -157,7 +157,6 @@ export default function initModels() {
               iso.arrange();
               iso.layout();
             }, 50);
-            
            
             if($('.' + ajaxPagerWrapClass).hasClass(ajaxPagerLazyClass)) {
               attachScrollPagination(wrapperClass);
