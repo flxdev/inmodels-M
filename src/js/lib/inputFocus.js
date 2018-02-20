@@ -96,7 +96,7 @@ export default function setInputFocus() {
     e.preventDefault();
     let _t = $(this),
       to_scroll = _t.attr('href'),
-      how_scroll = $(to_scroll).offset().top-60;
+      how_scroll = $(to_scroll).offset().top-35;
 
     $('html, body').animate({scrollTop: how_scroll}, 600);
   });

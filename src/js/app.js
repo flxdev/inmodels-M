@@ -39,6 +39,22 @@ var BarbaWitget = {
     preventDbClick();
     Barba.Pjax.start();
     Barba.Prefetch.init();
+
+    /* 
+      ** проверка на переход по ссылке .business-request для доскролла страницы. 
+      ** если переход с нужной ссылки - присваиваем true.
+      ** если с иной - переназначаем false.
+    */
+    let business = false;
+    Barba.Dispatcher.on('linkClicked', function(elem) {
+      let _t = $(elem);
+      if(_t.hasClass('business-request')) {
+        business = true;
+      } else {
+        business = false;
+      }
+    });
+
     Barba.Dispatcher.on('newPageReady', function(currentStatus) {
       var link = currentStatus.url.split(window.location.origin)[1].substring(0);
       var navigationLinks = document.querySelectorAll('.js-nav');
@@ -56,6 +72,22 @@ var BarbaWitget = {
     Barba.Dispatcher.on('transitionCompleted', (currentStatus, oldStatus, container) => {
       setTimeout(() => {
         scrollAnimations();
+
+        /* 
+          ** если проверка .business-request true, то доскроливаем
+        */
+        if(business) {
+          console.log('qq');
+          setTimeout(() => {
+            let to_scroll = $('#contacts-form'),
+              how_scroll = $(to_scroll).offset().top-30;
+            $('html, body').animate({scrollTop: how_scroll}, 600);
+          }, 1000);
+          
+        } else {
+          console.log('dd');
+        }
+        
       },300);
     }); 
     var FadeTransition = Barba.BaseTransition.extend({
@@ -74,9 +106,10 @@ var BarbaWitget = {
           }
         });
         if(window.DOM.menu.hasClass('active')) {
-          tl.set(window.DOM.menu, {
-            className: '+=hide-anim'
-          });
+          tl
+            .set(window.DOM.menu, {
+              className: '+=hide-anim'
+            });
           tl
             .set(window.DOM.pageLoader, {
               delay: this.delay,
@@ -119,7 +152,6 @@ var BarbaWitget = {
         let oldCont = $(this.oldContainer);
         let blockContent = newCont.find('.block-load');
         window.scroll(0, 0);
-        // window.DOM.hideScroll();
         let tlIn = new TimelineMax();
         tlIn
           .set(oldCont,{
@@ -162,7 +194,6 @@ var BarbaWitget = {
                       .set(window.DOM.pageLoader, {
                         className: '-=page-load'
                       });
-                    // window.DOM.showScroll();
                   }
                 });
 
