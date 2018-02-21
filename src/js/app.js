@@ -41,18 +41,24 @@ var BarbaWitget = {
     Barba.Prefetch.init();
 
     /* 
-      ** проверка на переход по ссылке .business-request для доскролла страницы. 
-      ** если переход с нужной ссылки - присваиваем true.
+      ** проверяем урл (внешний переход или битрикс. или внутренний)
+      ** если внутренний - проверка на переход по ссылке .business-request для доскролла страницы. 
+      ** если переход с нужной ссылки - присваиваем let business = true.
       ** если с иной - переназначаем false.
     */
     let business = false;
     Barba.Dispatcher.on('linkClicked', function(elem) {
       let _t = $(elem);
-      if(_t.hasClass('business-request')) {
-        business = true;
+      if(_t.attr('href').indexOf('/bitrix/admin/') !== -1 || _t.hasClass('no-barba')) {
+        indow.location.href = window.location.host+$(this).attr('href');
       } else {
-        business = false;
+        if(_t.hasClass('business-request')) {
+          business = true;
+        } else {
+          business = false;
+        }
       }
+      
     });
 
     Barba.Dispatcher.on('newPageReady', function(currentStatus) {
