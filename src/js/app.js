@@ -50,7 +50,7 @@ var BarbaWitget = {
     Barba.Dispatcher.on('linkClicked', function(elem) {
       let _t = $(elem);
       if(_t.attr('href').indexOf('/bitrix/admin/') !== -1 || _t.hasClass('no-barba')) {
-        window.location.href = window.location.host+_t.attr('href');
+        window.location.href = window.location.protocol + '//' + window.location.host+_t.attr('href');
       } else {
         if(_t.hasClass('business-request')) {
           business = true;
@@ -83,15 +83,13 @@ var BarbaWitget = {
           ** если проверка .business-request true, то доскроливаем
         */
         if(business) {
-          console.log('qq');
           setTimeout(() => {
             let to_scroll = $('#contacts-form'),
               how_scroll = $(to_scroll).offset().top-30;
             $('html, body').animate({scrollTop: how_scroll}, 600);
           }, 1000);
-          
+            
         } else {
-          console.log('dd');
         }
         
       },300);

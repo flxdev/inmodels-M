@@ -1,7 +1,12 @@
 import validator from 'jquery-form-validator/form-validator/jquery.form-validator.min.js';
-// import autosize from 'autosize';
 
 export default function setInputFocus() {
+
+  $.validate({
+    validateOnBlur : true,
+    onSuccess  : function() {
+    }
+  });
   
   let inputs = $('.input-item');
   if(inputs.length) {
@@ -24,7 +29,6 @@ export default function setInputFocus() {
       }); 
     });
   }
-
   
   let _input_f = $('.input-field');
   if(_input_f.length) {
@@ -64,8 +68,6 @@ export default function setInputFocus() {
     this.style.height = (this.scrollHeight) + 'px';
   });
 
-  // autosize($('textarea'));
-
   $('input[type="tel"]').on('click', function() {
     let i_val =  $(this).val();
     if(!i_val) {
@@ -79,17 +81,6 @@ export default function setInputFocus() {
     if(i_val === '+') {
       $(this).val('');
     }
-  });
-
-  $('button[type="submit"]').on('click touchstart', function() {
-    let error_l;
-    setTimeout(function() {
-      let error_l = $('.error').length;
-      if(!error_l) {
-        $('form').fadeOut(400);
-        $('.block-success').delay(450).fadeIn(400);
-      }
-    }, 100);
   });
 
   $('.js-to-form').on('click touchstart', function(e) {

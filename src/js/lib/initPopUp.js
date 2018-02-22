@@ -1,4 +1,5 @@
 import './domConf';
+
 export default function initPopUp() {
   var _this = $(this);
   _this.b = {
@@ -79,6 +80,5 @@ export default function initPopUp() {
       return false;
     }
   });
-
 
 }
