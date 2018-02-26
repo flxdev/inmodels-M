@@ -59,6 +59,12 @@ block content
 												span.drop-item__icon
 													+icon('cross')
 												.input-label Attach file
+										.input-item.c2.input-recaptcha
+											.recaptcha-wrap
+												input.recaptcha(
+													data-validation="recaptcha"
+													data-validation-recaptcha-sitekey="6LfyQ0YUAAAAALnPYQDtOHEU5cBfXMIMC3m5kPXn"
+													data-validation-error-msg="Вы не прошли каптчу")
 										.input-item.c2.input-bttn
 											button.bttn.normal(type="submit" )
 												span send a message

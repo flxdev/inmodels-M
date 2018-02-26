@@ -1,12 +1,22 @@
 import validator from 'jquery-form-validator/form-validator/jquery.form-validator.min.js';
-
+import 'jquery-form-validator/form-validator/security.js';
 export default function setInputFocus() {
 
-  $.validate({
-    validateOnBlur : true,
-    onSuccess  : function() {
-    }
-  });
+  var form_valid = $('.js-validate');
+  if (form_valid.length) {
+    form_valid.each(function() {
+      var form_this = $(this);
+      $.validate({
+        form: form_this,
+        validateOnBlur : true,
+        validateHiddenInputs : true,
+        modules: 'security',
+        reCaptchaSiteKey: '6LfyQ0YUAAAAALnPYQDtOHEU5cBfXMIMC3m5kPXn',
+        reCaptchaSize: 'normal',
+        reCaptchaTheme: 'light',
+      });
+    });
+  }
   
   let inputs = $('.input-item');
   if(inputs.length) {

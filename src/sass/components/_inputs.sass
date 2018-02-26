@@ -334,6 +334,16 @@
 					color: $color
 					&:after
 						opacity: 0
+		&.input-recaptcha
+			width: 100%
+			border: none
+			&:before,
+			&:after
+				display: none
+			input[data-validation] + *
+				&:after
+					content: ''
+					display: none
 		&.animate
 			opacity: 1
 			transform: none
