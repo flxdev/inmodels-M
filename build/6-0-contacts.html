@@ -97,6 +97,10 @@
         <symbol id="carret" viewBox="0 0 16 8.98">
           <path fill="currentcolor" d="M8 0L0 8.21l.75.77L8 1.54l7.25 7.44.75-.77L8 0z" data-name="UI Kit" />
         </symbol>
+        <symbol id="cross-X" viewBox="0 0 22.63 21.92">
+          <title>cross-X</title>
+          <path d="M11.31 9.9L1.41 0 .7.71l9.9 9.9L0 21.21l.71.71 10.6-10.61 10.61 10.61.71-.71L12.02 10.6l9.9-9.9-.71-.71z" />
+        </symbol>
         <symbol id="cross" viewBox="0 0 30 30">
           <path fill="currentcolor" stroke="currentcolor" d="M16 14V0h-1v14H0v1h15v15h1V15h14v-1z" data-name="UI Kit" />
         </symbol>
@@ -229,19 +233,24 @@
                                   <textarea class="input-field" type="text" id="user-msg" rows="1.5" data-validation="required" data-validation-error-msg="required field"></textarea>
                                   <label class="input-label" for="user-msg">Message</label>
                                 </div>
-                                <div class="input-item c2 drop-item" action="/upload">
-                                  <div class="dz-message">
+                                <div class="input-item c2 drop-item">
+                                  <label class="input-label" for="user-file">
                                     <span class="drop-item__icon">
                                       <svg class="cross">
                                         <use xlink:href="#cross"></use>
                                       </svg>
                                     </span>
-                                    <div class="input-label">Attach file</div>
-                                  </div>
-                                </div>
-                                <div class="input-item c2 input-recaptcha">
-                                  <div class="recaptcha-wrap">
-                                    <input class="recaptcha" data-validation="recaptcha" data-validation-recaptcha-sitekey="6LfyQ0YUAAAAALnPYQDtOHEU5cBfXMIMC3m5kPXn" data-validation-error-msg="Вы не прошли каптчу">
+                                    <input class="input-field drop-input" type="file" id="user-file" data-validation="mime size" data-validation-allowing="jpg, png, gif" data-validation-max-size="2M" data-validation-error-msg-size="Загрузите файл не больше 2Мб"
+                                      data-validation-error-msg-mime="Вы можете загрузить изображения или документ .pdf">
+                                    <span>Attach file</span>
+                                  </label>
+                                  <div class="file-name-wrap">
+                                    <span class="file-name"></span>
+                                    <a class="clear-file" href="#">
+                                      <svg class="cross-X">
+                                        <use xlink:href="#cross-X"></use>
+                                      </svg>
+                                    </a>
                                   </div>
                                 </div>
                                 <div class="input-item c2 input-bttn">

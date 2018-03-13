@@ -1,5 +1,7 @@
 import validator from 'jquery-form-validator/form-validator/jquery.form-validator.min.js';
-import 'jquery-form-validator/form-validator/security.js';
+// import 'jquery-form-validator/form-validator/security.js';
+import 'jquery-form-validator/src/modules/file.js';
+
 export default function setInputFocus() {
 
   var form_valid = $('.js-validate');
@@ -10,14 +12,59 @@ export default function setInputFocus() {
         form: form_this,
         validateOnBlur : true,
         validateHiddenInputs : true,
-        modules: 'security',
-        reCaptchaSiteKey: '6LfyQ0YUAAAAALnPYQDtOHEU5cBfXMIMC3m5kPXn',
-        reCaptchaSize: 'normal',
-        reCaptchaTheme: 'light',
+        scrollToTopOnError : false,
+        modules: 'file',
+        // modules: 'security',
+        // reCaptchaSiteKey: '6LfyQ0YUAAAAALnPYQDtOHEU5cBfXMIMC3m5kPXn',
+        // reCaptchaSize: 'normal',
+        // reCaptchaTheme: 'light',
       });
     });
   }
   
+  let drop_input = $('.drop-input');
+  if(drop_input.length) {
+    drop_input.each(function() {
+      $(this).on('input change',function() {
+        let _inp =  $(this),
+          _inp_parent = _inp.parent().parent(),
+          _inp_name = _inp_parent.find('.file-name'),
+          _name_wrap = _inp_parent.find('.file-name-wrap'),
+          str = _inp.val();
+        if (str.lastIndexOf('\\')) {
+          var i = str.lastIndexOf('\\')+1;
+        }
+        else{
+          var i = str.lastIndexOf('/')+1;
+        }           
+        var filename = str.slice(i);
+        _inp_name.html(filename);
+        _inp.validate();
+        _name_wrap.fadeIn(300);
+      });
+    });
+  }
+
+  let clear_file = $('.clear-file');
+  if(clear_file.length) {
+    clear_file.each(function() {
+      let _clear = $(this);
+      _clear.on('click touchstart', function() {
+        let _clear_parent = $(this).parent().parent(),
+          _clear_inp = _clear_parent.find('.drop-input'),
+          _clear_name = _clear_parent.find('.file-name'),
+          _clear_wrap = _clear_parent.find('.file-name-wrap');
+        _clear_wrap.fadeOut(300);
+        setTimeout( function() {
+          _clear_inp.val('');
+          _clear_inp.validate();
+          _clear_name.html('');
+        }, 350);
+        
+      });
+    });
+  }
+
   let inputs = $('.input-item');
   if(inputs.length) {
     inputs.each(function() {

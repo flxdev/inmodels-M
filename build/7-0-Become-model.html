@@ -97,6 +97,10 @@
         <symbol id="carret" viewBox="0 0 16 8.98">
           <path fill="currentcolor" d="M8 0L0 8.21l.75.77L8 1.54l7.25 7.44.75-.77L8 0z" data-name="UI Kit" />
         </symbol>
+        <symbol id="cross-X" viewBox="0 0 22.63 21.92">
+          <title>cross-X</title>
+          <path d="M11.31 9.9L1.41 0 .7.71l9.9 9.9L0 21.21l.71.71 10.6-10.61 10.61 10.61.71-.71L12.02 10.6l9.9-9.9-.71-.71z" />
+        </symbol>
         <symbol id="cross" viewBox="0 0 30 30">
           <path fill="currentcolor" stroke="currentcolor" d="M16 14V0h-1v14H0v1h15v15h1V15h14v-1z" data-name="UI Kit" />
         </symbol>
@@ -312,58 +316,89 @@
                               </div>
                               <div class="form-block__title">photo</div>
                               <div class="input-row">
-                                <div class="input-item c2 drop-item" action="/upload">
-                                  <div class="dz-message">
+                                <div class="input-item c2 drop-item">
+                                  <label class="input-label" for="photo-face">
                                     <span class="drop-item__icon">
                                       <svg class="cross">
                                         <use xlink:href="#cross"></use>
                                       </svg>
                                     </span>
-                                    <input class="input-field" type="hidden" data-validation="required" data-validation-error-msg="required upload file">
-                                    <div class="input-label">Add photo face</div>
+                                    <input class="input-field drop-input" type="file" id="photo-face" data-validation="mime size" data-validation-allowing="jpg, png, gif" data-validation-max-size="2M" data-validation-error-msg-size="Загрузите файл не больше 2Мб"
+                                      data-validation-error-msg-mime="Вы можете загрузить изображения или документ .pdf">
+                                    <span>Add photo face</span>
+                                  </label>
+                                  <div class="file-name-wrap">
+                                    <span class="file-name"></span>
+                                    <a class="clear-file" href="#">
+                                      <svg class="cross-X">
+                                        <use xlink:href="#cross-X"></use>
+                                      </svg>
+                                    </a>
                                   </div>
                                 </div>
-                                <div class="input-item c2 drop-item" action="/upload">
-                                  <div class="dz-message">
+                                <div class="input-item c2 drop-item">
+                                  <label class="input-label" for="photo-profile">
                                     <span class="drop-item__icon">
                                       <svg class="cross">
                                         <use xlink:href="#cross"></use>
                                       </svg>
                                     </span>
-                                    <input class="input-field" type="hidden">
-                                    <div class="input-label">Add profile photo</div>
+                                    <input class="input-field drop-input" type="file" id="photo-profile" data-validation="mime size" data-validation-allowing="jpg, png, gif" data-validation-max-size="2M" data-validation-error-msg-size="Загрузите файл не больше 2Мб"
+                                      data-validation-error-msg-mime="Вы можете загрузить изображения или документ .pdf">
+                                    <span>Add profile photo</span>
+                                  </label>
+                                  <div class="file-name-wrap">
+                                    <span class="file-name"></span>
+                                    <a class="clear-file" href="#">
+                                      <svg class="cross-X">
+                                        <use xlink:href="#cross-X"></use>
+                                      </svg>
+                                    </a>
                                   </div>
                                 </div>
-                                <div class="input-item c2 drop-item" action="/upload">
-                                  <div class="dz-message">
+                                <div class="input-item c2 drop-item">
+                                  <label class="input-label" for="photo-3/4">
                                     <span class="drop-item__icon">
                                       <svg class="cross">
                                         <use xlink:href="#cross"></use>
                                       </svg>
                                     </span>
-                                    <input class="input-field" type="hidden">
-                                    <div class="input-label">Add photo 3/4</div>
+                                    <input class="input-field drop-input" type="file" id="photo-3/4" data-validation="mime size" data-validation-allowing="jpg, png, gif" data-validation-max-size="2M" data-validation-error-msg-size="Загрузите файл не больше 2Мб"
+                                      data-validation-error-msg-mime="Вы можете загрузить изображения или документ .pdf">
+                                    <span>Add photo 3/4</span>
+                                  </label>
+                                  <div class="file-name-wrap">
+                                    <span class="file-name"></span>
+                                    <a class="clear-file" href="#">
+                                      <svg class="cross-X">
+                                        <use xlink:href="#cross-X"></use>
+                                      </svg>
+                                    </a>
                                   </div>
                                 </div>
-                                <div class="input-item c2 drop-item" action="/upload">
-                                  <div class="dz-message">
+                                <div class="input-item c2 drop-item">
+                                  <label class="input-label" for="photo-length">
                                     <span class="drop-item__icon">
                                       <svg class="cross">
                                         <use xlink:href="#cross"></use>
                                       </svg>
                                     </span>
-                                    <input class="input-field" type="hidden">
-                                    <div class="input-label">Add photo in full length</div>
+                                    <input class="input-field drop-input" type="file" id="photo-length" data-validation="mime size" data-validation-allowing="jpg, png, gif" data-validation-max-size="2M" data-validation-error-msg-size="Загрузите файл не больше 2Мб"
+                                      data-validation-error-msg-mime="Вы можете загрузить изображения или документ .pdf">
+                                    <span>Add photo in full length</span>
+                                  </label>
+                                  <div class="file-name-wrap">
+                                    <span class="file-name"></span>
+                                    <a class="clear-file" href="#">
+                                      <svg class="cross-X">
+                                        <use xlink:href="#cross-X"></use>
+                                      </svg>
+                                    </a>
                                   </div>
                                 </div>
                                 <div class="input-item input-textarea">
                                   <textarea class="input-field" type="text" id="user-msg" rows="1.5"></textarea>
                                   <label class="input-label" for="user-msg">Note</label>
-                                </div>
-                                <div class="input-item c2 input-recaptcha">
-                                  <div class="recaptcha-wrap">
-                                    <input class="recaptcha" data-validation="recaptcha" data-validation-recaptcha-sitekey="6LfyQ0YUAAAAALnPYQDtOHEU5cBfXMIMC3m5kPXn" data-validation-error-msg="Вы не прошли каптчу">
-                                  </div>
                                 </div>
                                 <div class="input-item input-bttn">
                                   <button class="bttn normal w100" type="submit">

@@ -93,7 +93,7 @@ export default (env) => {
         minimize: true,
       }),
       new webpack.optimize.ModuleConcatenationPlugin(),
-      // new webpack.optimize.DedupePlugin(),
+      new webpack.optimize.DedupePlugin(),
       new UglifyJsPlugin({
         uglifyOptions: {
           ie8: false,

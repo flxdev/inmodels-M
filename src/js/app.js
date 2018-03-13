@@ -2,7 +2,7 @@ import $ from 'jquery/dist/jquery';
 import Barba from 'barba.js/dist/barba.min';
 import './lib/domConf';
 import setInputFocus from './lib/inputFocus';
-import initDropzone from './lib/initDropzone';
+// import initDropzone from './lib/initDropzone';
 import formValidator from './lib/formValidator';
 import initPopUp from './lib/initPopUp';
 import youtubeVideo from './lib/youtubeVideo';
@@ -295,7 +295,7 @@ var contacts = Barba.BaseView.extend({
   },
   onEnterCompleted: function() {
     formValidator();
-    initDropzone();
+    // initDropzone();
     setInputFocus();
     scrollAnimations();
     mobEventScroll();
