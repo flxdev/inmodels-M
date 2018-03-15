@@ -50,27 +50,27 @@
 			content: ''
 			display: block
 			height: 2px
-			width: 0
+			width: 100%
 			position: absolute
 			bottom: -1px
 			left: 0
 			z-index: 2
 			background-color: $color
-			transition: width .4s ease-in
+			transform: scaleX(0)
+			transform-origin: 0 0
+			transition: transform .3s ease-in
+			will-change: transform
 		&::before
 			bottom: 0
 			z-index: 1
 			height: 100%
 			background-color: #f4f4f4
-		&:hover
-			&:after
-				width: 100%
 		&.focus
 			&::before, &::after
-				width: 100%
+				transform: none
 		&.editing
 			&::before, &::after
-				width: 100%
+				transform: none
 			label
 				font-size: 15px
 				transform: translate(-10px, -40px)
@@ -85,6 +85,8 @@
 			&:after
 				content: ' *'
 		.input-field
+			font-family: $font-family
+			font-variant-ligatures: none
 			padding: 12px 10px
 			position: relative
 			z-index: 5
@@ -177,7 +179,7 @@
 			border-color: $error-color
 			&::before
 				background-color: $bg-error
-				width: 100%
+				transform: none
 			&::after
 				background-color: $error-color
 		&.drop-item
@@ -305,6 +307,7 @@
 				opacity: 0
 				visibility: hidden
 				transition: visibility 0s .5s,transform .45s ease, opacity .45s ease, box-shadow .2s
+				will-change: transform
 				&__item
 					font-size: 20px
 					font-weight: 300
@@ -326,6 +329,7 @@
 					visibility: visible
 					box-shadow: 0 2px 10px 0 rgba(76, 70, 68, 0.15)
 					transition: visible 0s ,transform .6s ease-out, opacity .4s .1s ease-out, box-shadow .2s .5s
+					will-change: transform
 			&.has-success
 				.select-link
 					color: $color
@@ -366,6 +370,7 @@
 		transition-delay: .6s
 		z-index: 6
 		visibility: visible
+		will-change: font-size
 	&-row
 		display: flex
 		justify-content: space-between
@@ -396,10 +401,3 @@
 	&.drop-item.focus
 		.help-block
 			opacity: 1
-.dz-remove
-	display: block
-	width: 11px
-	height: 11px
-	background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMi42MyAyMS45MiI+PHRpdGxlPmNyb3NzLVg8L3RpdGxlPjxwYXRoIGQ9Ik0xNSwxMy41OSw1LjEsMy42OWwtLjcxLjcxLDkuOSw5LjlMMy42OSwyNC45bC43MS43MUwxNSwxNSwyNS42MSwyNS42MWwuNzEtLjcxTDE1LjcxLDE0LjI5bDkuOS05LjktLjcxLS43MVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zLjY5IC0zLjY5KSIvPjwvc3ZnPg==)
-	background-repeat: no-repeat
-	background-position: (50%, 50%)

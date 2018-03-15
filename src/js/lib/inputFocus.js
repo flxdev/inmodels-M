@@ -1,6 +1,7 @@
 import validator from 'jquery-form-validator/form-validator/jquery.form-validator.min.js';
 // import 'jquery-form-validator/form-validator/security.js';
 import 'jquery-form-validator/src/modules/file.js';
+import './domConf';
 
 export default function setInputFocus() {
 
@@ -66,38 +67,53 @@ export default function setInputFocus() {
   }
 
   let inputs = $('.input-item');
+  let nav_burgr = $('.navigation-burger');
+  let wHeight = document.documentElement.clientHeight;
+
   if(inputs.length) {
     inputs.each(function() {
       let _t = $(this);
       _t.on('click', function() {
+        console.log(wHeight);
+        nav_burgr.addClass('block-click');
         if(!_t.hasClass('focus')) {
-          $(this).addClass('focus');
-          $(this).find('input').focus();
+          _t.addClass('focus').siblings().removeClass('focus');
         } else {
           if(_t.hasClass('select')) {
             _t.removeClass('focus');
           }
         }
       });
-      $(document).on('click touchstart', function(e) {
-        if (!_t.is(e.target) && _t.has(e.target).length === 0) {
-          _t.removeClass('focus').blur();
-        }
-      }); 
     });
+    $(document).on('click touchend', function(e) {
+      if (!inputs.is(e.target) && inputs.has(e.target).length === 0) {
+        $('.input-item.select').removeClass('focus');
+      }
+    }); 
   }
   
   let _input_f = $('.input-field');
   if(_input_f.length) {
     _input_f.each(function() {
-      $(this).on('input change',function() {
-        let _val = $(this).val().length,
-          parent = $(this).parent();
+      let _f = $(this);
+      _f.on('input change',function() {
+        let _val = _f.val().length,
+          parent = _f.parent();
         if(_val<=0) {
           parent.removeClass('editing');
         } else {
           parent.addClass('editing');
+          console.log(wHeight);
         }
+      });
+      _f.on('blur', function() {
+        let parent = _f.parent();
+        parent.removeClass('focus');
+        nav_burgr.removeClass('block-click');
+        setTimeout(function() {
+          $('html').height(wHeight);
+        },300);
+        
       });
     });
   }
