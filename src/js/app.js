@@ -80,6 +80,11 @@ var BarbaWitget = {
         scrollAnimations();
 
         /* 
+          ** убираем класс, скрывающий бургер
+        */
+        $('.navigation-burger').removeClass('block-click');
+
+        /* 
           ** если проверка .business-request true, то доскроливаем
         */
         if(business) {
@@ -89,7 +94,6 @@ var BarbaWitget = {
             $('html, body').animate({scrollTop: how_scroll}, 600);
           }, 1000);
             
-        } else {
         }
         
       },300);
@@ -187,7 +191,6 @@ var BarbaWitget = {
                   autoAlpha: 1,
                   clearProps:'all',
                   onComplete: () => {
-
                     tlIn
                       .set(window.DOM.pageLoaderB, {
                         clearProps:'all'
