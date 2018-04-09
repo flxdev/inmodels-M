@@ -48,6 +48,11 @@ var BarbaWitget = {
     */
     let business = false;
     Barba.Dispatcher.on('linkClicked', function(elem) {
+      /* 
+        ** убираем класс, скрывающий бургер
+      */
+      $('.navigation-burger').removeClass('block-click');
+      
       let _t = $(elem);
       if(_t.attr('href').indexOf('/bitrix/admin/') !== -1 || _t.hasClass('no-barba')) {
         window.location.href = window.location.protocol + '//' + window.location.host+_t.attr('href');
@@ -76,14 +81,9 @@ var BarbaWitget = {
 
     }); 
     Barba.Dispatcher.on('transitionCompleted', (currentStatus, oldStatus, container) => {
+        
       setTimeout(() => {
-        scrollAnimations();
-
-        /* 
-          ** убираем класс, скрывающий бургер
-        */
-        $('.navigation-burger').removeClass('block-click');
-
+        scrollAnimations();    
         /* 
           ** если проверка .business-request true, то доскроливаем
         */

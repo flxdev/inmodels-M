@@ -66,73 +66,70 @@ export default function setInputFocus() {
     });
   }
 
-  let inputs = $('.input-item');
+  
   let nav_burgr = $('.navigation-burger');
   let wHeight = document.documentElement.clientHeight;
 
-  if(inputs.length) {
-    inputs.each(function() {
-      let _t = $(this);
-      _t.on('click', function() {
-        nav_burgr.addClass('block-click');
-        if(!_t.hasClass('focus')) {
-          _t.addClass('focus').siblings().removeClass('focus');
-        } else {
-          if(_t.hasClass('select')) {
-            _t.removeClass('focus');
-            nav_burgr.removeClass('block-click');
-          }
+  $('.input-item').each(function() {
+    let _t = $(this);
+    _t.on('click', function() {
+      nav_burgr.addClass('block-click');
+      if(!_t.hasClass('focus')) {
+        _t.addClass('focus').siblings().removeClass('focus');
+      } else {
+        if(_t.hasClass('select')) {
+          _t.removeClass('focus');
+          nav_burgr.removeClass('block-click');
         }
-      });
+      }
     });
-    // $(document).on('click touchend', function(e) {
-    //   if (!inputs.is(e.target) && inputs.has(e.target).length === 0) {
-    //     $('.input-item.select').removeClass('focus');
-    //     nav_burgr.removeClass('block-click');
-    //   }
-    // }); 
-  }
-  
-  let _input_f = $('.input-field');
-  if(_input_f.length) {
-    _input_f.each(function() {
-      let _f = $(this);
-      _f.on('input change',function() {
-        let _val = _f.val().length,
-          parent = _f.parent();
-        if(_val<=0) {
-          parent.removeClass('editing');
-        } else {
-          parent.addClass('editing');
-        }
-      });
-      _f.on('blur', function() {
-        let parent = _f.parent();
-        parent.removeClass('focus');
-        nav_burgr.removeClass('block-click');
-        // setTimeout(function() {
-        //   $('html').height(wHeight);
-        // },300);
-        
-      });
-    });
-  }
+  });
+  $(document).on('click touchstart', function(e) {
+    let inputs =  $('.input-item');
+    if (!inputs.is(e.target) && inputs.has(e.target).length === 0) {
+      $('.input-item.focus').removeClass('focus').find('input').blur();
 
-  let select_item = $('.select-list__item');
-  if(select_item.length) {
-    select_item.each(function() {
-      let _item = $(this);
-      _item.on('click', function(e) {
-        e.stopPropagation();
-        let value = $(this).text(),
-          parent = $(this).closest('.select');
-        parent.find('.select-link').text(value);
-        parent.find('input').val(value).validate();
-        parent.removeClass('focus');
-        nav_burgr.removeClass('block-click');
-      });
+      nav_burgr.removeClass('block-click');
+    }
+  }); 
+  
+  
+  $('.input-field').each(function() {
+    let _f = $(this);
+    _f.on('input change',function() {
+      let _val = _f.val().length,
+        parent = _f.parent();
+      if(_val<=0) {
+        parent.removeClass('editing');
+      } else {
+        parent.addClass('editing');
+      }
     });
-  }
+    _f.on('blur', function() {
+      let parent = _f.parent();
+      parent.removeClass('focus');
+      nav_burgr.removeClass('block-click');
+      // setTimeout(function() {
+      //   $('html').height(wHeight);
+      // },300);
+        
+    });
+  });
+  
+
+  $('.select-list__item').each(function() {
+    let _item = $(this);
+    _item.on('click touchstart', function(e) {
+      e.stopPropagation();
+      let value = $(this).text(),
+        parent = $(this).closest('.select');
+      parent.find('.select-link').text(value);
+      parent.find('input').val(value).validate();
+      parent.removeClass('focus');
+      nav_burgr.removeClass('block-click');
+    });
+  });
+  
 
   $('textarea').each(function() {
     this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
@@ -141,7 +138,7 @@ export default function setInputFocus() {
     this.style.height = (this.scrollHeight) + 'px';
   });
 
-  $('input[type="tel"]').on('click', function() {
+  $('input[type="tel"]').on('click touchstart', function() {
     let i_val =  $(this).val();
     if(!i_val) {
       $(this).val('+');
