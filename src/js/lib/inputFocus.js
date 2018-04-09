@@ -80,15 +80,17 @@ export default function setInputFocus() {
         } else {
           if(_t.hasClass('select')) {
             _t.removeClass('focus');
+            nav_burgr.removeClass('block-click');
           }
         }
       });
     });
-    $(document).on('click touchend', function(e) {
-      if (!inputs.is(e.target) && inputs.has(e.target).length === 0) {
-        $('.input-item.select').removeClass('focus');
-      }
-    }); 
+    // $(document).on('click touchend', function(e) {
+    //   if (!inputs.is(e.target) && inputs.has(e.target).length === 0) {
+    //     $('.input-item.select').removeClass('focus');
+    //     nav_burgr.removeClass('block-click');
+    //   }
+    // }); 
   }
   
   let _input_f = $('.input-field');
@@ -120,14 +122,14 @@ export default function setInputFocus() {
   if(select_item.length) {
     select_item.each(function() {
       let _item = $(this);
-      _item.on('click touchstart', function(e) {
+      _item.on('click', function(e) {
         e.stopPropagation();
         let value = $(this).text(),
           parent = $(this).closest('.select');
         parent.find('.select-link').text(value);
         parent.find('input').val(value).validate();
         parent.removeClass('focus');
-  
+        nav_burgr.removeClass('block-click');
       });
     });
   }
