@@ -66,6 +66,7 @@ export default function initModels() {
     let clr_bttn = $('.clear-bttn').on('click', debounce( function() {
       $(clr_bttn).parents('.active').removeClass('active');
       $(clr_bttn).parent().removeClass('editing').find('input').val('').blur();
+      window.DOM.navSearch.addClass('active');
       let qsRegex = new RegExp( $quicksearch.val(), 'gi' );
       iso.arrange({
         filter: function(itemElem) {
@@ -80,14 +81,14 @@ export default function initModels() {
       iso.layout();
     }, 200 ));
     
-    $('.clear-bttn').on('click touchstart', function() {
-      let parent = $(this).parent(),
-        inpt = parent.find('input'),
-        inpt_val = inpt.val();
-      if(!inpt_val) {
-        $(this).parents('.active').removeClass('active');
-      }
-    });
+    // $('.clear-bttn').on('click touchstart', function() {
+    //   let parent = $(this).parent(),
+    //     inpt = parent.find('input'),
+    //     inpt_val = inpt.val();
+    //   if(!inpt_val) {
+    //     $(this).parents('.active').removeClass('active');
+    //   }
+    // });
 
     //debounce so filtering doesn't happen every millisecond
     function debounce( fn, threshold ) {
@@ -186,24 +187,35 @@ export default function initModels() {
 
     window.DOM.navSearch.off('click').on('click touchstart',function(e) {
       e.preventDefault();
-      let el_scroll = $(this).attr('href'),
-        el_input = $(el_scroll).find('input'),
-        el_off = $(el_scroll).offset().top;
-      if($(el_scroll).hasClass('active')) {
-        if(scrolled > el_off) {
-          $('html, body').animate({scrollTop: 0}, 300);
-          el_input.focus();
-          busy = true;
-        } else {
-          $(el_scroll).removeClass('active');
-          busy = false;
-        }
-      } else {
-        $(el_scroll).addClass('active');
-        $('html, body').animate({scrollTop: 0}, 300);
-        el_input.focus();
-        busy = true;
-      }
+      $(this).removeClass('active');
+      $('.search-block').addClass('active');
+      $('html, body').animate({scrollTop: 0}, 300);
+
+      //   el_input = $(el_scroll).find('input'),
+      //   el_off = $(el_scroll).offset().top;
+
+      // if($(el_scroll).hasClass('active')) {
+
+      //   if(scrolled > el_off) {
+
+      //     $('html, body').animate({scrollTop: 0}, 300);
+      //     el_input.focus();
+      //     busy = true;
+
+      //   } else {
+
+      //     $(el_scroll).removeClass('active');
+      //     busy = false;
+
+      //   }
+      // } else {
+
+      //   $(el_scroll).addClass('active');
+      //   $('html, body').animate({scrollTop: 0}, 300);
+      //   el_input.focus();
+      //   busy = true;
+
+      // }
     });
   }
 }

@@ -27,7 +27,7 @@ export default function setInputFocus() {
   if(drop_input.length) {
     drop_input.each(function() {
       $(this).on('input change',function() {
-        let _inp =  $(this),
+        let _inp =  $(this), 
           _inp_parent = _inp.parent().parent(),
           _inp_name = _inp_parent.find('.file-name'),
           _name_wrap = _inp_parent.find('.file-name-wrap'),
@@ -74,7 +74,6 @@ export default function setInputFocus() {
     inputs.each(function() {
       let _t = $(this);
       _t.on('click', function() {
-        console.log(wHeight);
         nav_burgr.addClass('block-click');
         if(!_t.hasClass('focus')) {
           _t.addClass('focus').siblings().removeClass('focus');
@@ -103,16 +102,15 @@ export default function setInputFocus() {
           parent.removeClass('editing');
         } else {
           parent.addClass('editing');
-          console.log(wHeight);
         }
       });
       _f.on('blur', function() {
         let parent = _f.parent();
         parent.removeClass('focus');
         nav_burgr.removeClass('block-click');
-        setTimeout(function() {
-          $('html').height(wHeight);
-        },300);
+        // setTimeout(function() {
+        //   $('html').height(wHeight);
+        // },300);
         
       });
     });
