@@ -130,13 +130,13 @@
 				height: 0
 				padding-bottom: 150%
 				position: relative
-				background-color: rgba(0,0,0,.5)
 				font-size: 0
 				img
 					display: block
 					object-fit: cover
 					height: 100%
 					width: auto
+					background-color: rgba(0,0,0,.5)
 			&__inn
 				position: absolute
 				top: 0
@@ -254,7 +254,6 @@
 				height: 0
 				padding-bottom: 150%
 				position: relative
-				background-color: rgba(0,0,0,.5)
 			&__inn
 				position: absolute
 				top: 0
@@ -265,6 +264,8 @@
 					display: block
 					height: 100%
 					width: auto
+					object-fit: cover
+					background-color: rgba(0,0,0,.5)
 			&__date
 				color: rgba(#ffffff, .6)
 				font-size: 14px
@@ -498,24 +499,24 @@
 						transition: opacity .3s, transform .4s
 						transition-delay: 0.2s * $i
 
-.line-decor
-	display: block
-	position: relative
-	&::before
-		content: ''
-		display: block
-		width: 100px
-		height: 1px
-		background-color: $color
-		position: absolute
-		top: 14px
-		z-index: 2
-	&.line_l
-		&::before
-			left: -53%
-	&.line_r
-		&::before
-			right: -43%
+// .line-decor
+// 	display: block
+// 	position: relative
+// 	&::before
+// 		content: ''
+// 		display: block
+// 		width: 100px
+// 		height: 1px
+// 		background-color: $color
+// 		position: absolute
+// 		top: 14px
+// 		z-index: 2
+// 	&.line_l
+// 		&::before
+// 			left: -53%
+// 	&.line_r
+// 		&::before
+// 			right: -43%
 
 .inner
 	&-title
