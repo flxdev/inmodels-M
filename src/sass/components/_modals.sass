@@ -2,17 +2,17 @@
 	visibility: hidden
 	pointer-events: none
 	position: fixed
-	width: 0px
-	height: 0px
-	top: -1000px
-	left: -1000px
-	z-index: 4
+	width: 100vw
+	height: 100vh
+	top: 0
+	left: 0
+	z-index: 20
 
 .modal	
 	&-layout
 		visibility: hidden
 		background-color: transparent
-		position: fixed
+		position: absolute
 		left: 0
 		right: 0
 		bottom: 0
@@ -20,7 +20,8 @@
 		// width: 100%
 		// height: 100%
 		// padding: 10px
-		z-index: 4
+		overflow: hidden
+		z-index: 20
 		transform: translateX(-110%)
 		transition: visibility 0s .3s, transform 0s .4s
 		&.active
@@ -56,11 +57,11 @@
 					transition: transform .3s .15s, opacity .3s .15s
 				
 				@for $i from 1 to 12
-					.pages-links__item:nth-child(n+#{$i})
+					.pages-links__item:nth-child(#{$i})
 						opacity: 1
 						transform: none
 						transition: opacity .3s, transform .4s
-						transition-delay: 0.2s * $i
+						transition-delay: $i /7 +s
 				.link-lang
 					visibility: visible
 					opacity: 1
@@ -81,18 +82,18 @@
 		height: 100%
 	&-menu
 		+nosel
-		pointer-events: all
+		pointer-events: none
 		position: relative
 		background-color: transparent
 		vertical-align: middle
 		text-align: center
-		overflow-y: scroll
+		overflow: hidden
 		
 		&__l-1,&__l-2
 			position: absolute
 			top: 0
 			left: 0
-			z-index: 1
+			z-index: -1
 			width: 100%
 			height: 100%
 			visibility: hidden
@@ -121,16 +122,17 @@
 				transform-origin: 100% 100%
 		&-inner
 			width: 100%
-			// height: 100%		
+			height: 100%		
 			position: relative
 			z-index: 5
 			transition: background-color .3s 0s
-			// overflow-y: scroll
-			// overflow-x: hidden
+			overflow-y: scroll
+			overflow-x: hidden
+			pointer-events: all
 			-webkit-overflow-scrolling: touch
 			+nosel
-			padding-top: 90px
-			padding-right: 60px
+			padding-top: 0
+			padding-right: 30px
 			padding-left: 30px
 			padding-bottom: 15px
 			// +r(450)
@@ -157,6 +159,17 @@
 					transform: translateY(20px)
 					transition: opacity .1s .0s, transform .0s .1s, font-size .3s
 					will-change: transform, opacity
+					&:nth-last-child(2)
+						position: relative
+						&:before
+							content: ''
+							display: block
+							width: 100%
+							height: 1px
+							background-color: $link-color
+							opacity: .4
+							margin-bottom: 20px
+							margin-top: 20px
 					.modal-link
 						color: $color
 					span
@@ -166,17 +179,9 @@
 						+r(450)
 							font-size: 30px
 							line-height: 1
-				&--social
-					position: relative
-					&:before
-						content: ''
-						display: block
-						width: 100%
-						height: 1px
-						background-color: $link-color
-						opacity: .4
-						margin-bottom: 35px
-						margin-top: 35px
+						+r(350)
+							font-size: 20px
+
 
 			.navigation-link
 				width: 100%
@@ -202,7 +207,7 @@
 				display: block
 				font-size: 12px
 				font-weight: normal
-				margin-top: 35px
+				// margin-top: 35px
 				line-height: 1.67
 				letter-spacing: 3px
 				text-transform: uppercase
@@ -212,21 +217,36 @@
 				transform-origin: 100% 0
 				opacity: 0
 				transition: transform .3s .1s, opacity .3s .1s, visibility 0s .3s
-		.link-logo
-			display: block
-			height: 20px
-			width: 112px
-			position: absolute
-			color: $color
-			z-index: 3
-			svg
-				fill: $color
-			top: 30px
-			right: 30px
-			opacity: 0
-			transform: translateX(20px)
-			transition: transform .3s .1s, opacity .3s .1s
+	
+		&-head
+			display: flex
+			justify-content: space-between
+			align-items: center
+			padding-top: 30px
+			margin-bottom: 25px
+			.link-logo
+				display: block
+				height: 20px
+				width: 112px
+				color: $color
+				z-index: 3
+				svg
+					fill: $color
+				opacity: 0
+				transform: translateX(20px)
+				transition: transform .3s .1s, opacity .3s .1s
 
+			.pop-close
+				display: block
+				width: 26px
+				height: 26px
+				cursor: pointer
+				z-index: 3
+				opacity: 0
+				transform: rotate(-180deg)
+				transition: opacity .3s .1s, left .3s .1s, transform .3s .1s
+				-webkit-font-smoothing: antialiased
+	
 		.link-dev
 			color: $disable-color
 			font-size: 12px
@@ -243,17 +263,3 @@
 			z-index: 7
 			transition: transform .3s .1s, opacity .3s .1s
 
-		.pop-close
-			display: block
-			width: 26px
-			height: 26px
-			cursor: pointer
-			position: absolute
-			z-index: 3
-			top: 27px
-			left: -26px
-			opacity: 0
-			transform: rotate(-180deg)
-			transition: opacity .3s .1s, left .3s .1s, transform .3s .1s
-			-webkit-font-smoothing: antialiased
-	

@@ -47,6 +47,7 @@ var BarbaWitget = {
       ** если с иной - переназначаем false.
     */
     let business = false;
+    // let social = false;
     Barba.Dispatcher.on('linkClicked', function(elem) {
       /* 
         ** убираем класс, скрывающий бургер
@@ -62,6 +63,11 @@ var BarbaWitget = {
         } else {
           business = false;
         }
+        // if(_t.hasClass('social-list')) {
+        //   social = true;
+        // } else {
+        //   social = false;
+        // }
       }
       
     });
@@ -95,6 +101,14 @@ var BarbaWitget = {
           }, 1000);
             
         }
+        // if(social) {
+        //   setTimeout(() => {
+        //     let to_scroll = $('.contacts-wrap'),
+        //       how_scroll = $(to_scroll).offset().top-30;
+        //     $('html, body').animate({scrollTop: how_scroll}, 600);
+        //   }, 1000);
+            
+        // }
         
       },300);
     }); 
@@ -353,7 +367,6 @@ $(document).ready(function() {
   initPopUp();
 
   BarbaWitget.init();
-
 
 });
 window.onload = () => {

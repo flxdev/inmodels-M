@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Contact us</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" maximum-scale="1.0" user-scalable="no">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/fav/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/fav/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/fav/favicon-16x16.png">
@@ -203,9 +203,12 @@
                           <a href="#">Open road map</a>
                           <h4>Contact</h4>
                           <div class="contacts-wrap">
-                            <a class="link" href="tel:+375(29)6336069">+375 (29) 633 60 69</a>
-                            <a class="link" href="tel:+375(33)6006069">+375 (33) 600 60 69</a>
-                            <a class="link" href="mailto:info@inmodels.by">info@inmodels.by</a>
+                            <a class="link no-barba" href="tel:+375(29)6336069">+375 (29) 633 60 69</a>
+                            <a class="link no-barba" href="tel:+375(33)6006069">+375 (33) 600 60 69</a>
+                            <a class="link no-barba" href="mailto:info@inmodels.by">info@inmodels.by</a>
+                            <a class="link no-barba" href="https://ru-ru.facebook.com/inmodelsby/" target="_blank">facebook</a>
+                            <a class="link no-barba" href="https://www.instagram.com/inmodelsby/" target="_blank">instagram</a>
+                            <a class="link no-barba" href="https://vk.com/inmodelsby" target="_blank">vkontakte</a>
                           </div>
                           <a class="bttn normal" href="7-0-Become-model.html">
                             <span>Become a model</span>
@@ -222,7 +225,7 @@
                                   <label class="input-label" for="user-name">Name</label>
                                 </div>
                                 <div class="input-item c2">
-                                  <input class="input-field" type="tel" id="user-tel">
+                                  <input class="input-field" type="tel" id="user-tel" pattern="^\+\d*">
                                   <label class="input-label" for="user-tel">Phone</label>
                                 </div>
                                 <div class="input-item">
@@ -292,17 +295,19 @@
           <div class="modal-menu__l-1"></div>
           <div class="modal-menu__l-2"></div>
           <div class="modal-menu-inner">
-            <div class="pop-close closePopup">
-              <svg class="cross">
-                <use xlink:href="#cross"></use>
-              </svg>
+            <div class="modal-menu-head">
+              <div class="pop-close closePopup">
+                <svg class="cross">
+                  <use xlink:href="#cross"></use>
+                </svg>
+              </div>
+              <a class="link-logo" href="./home.html">
+                <svg class="logo">
+                  <use xlink:href="#logo"></use>
+                </svg>
+              </a>
             </div>
-            <a class="link-logo" href="./home.html">
-              <svg class="logo">
-                <use xlink:href="#logo"></use>
-              </svg>
-            </a>
-            <ul>
+            <ul class="pages-links__list">
               <li class="pages-links__item">
                 <a href="./4-0-agency.html">
                   <span class="modal-link">Agency</span>
@@ -329,14 +334,8 @@
               <li class="pages-links__item">
                 <a class="navigation-link__item modal-link business-request" href="./6-0-contacts.html">Business request</a>
               </li>
-              <li class="pages-links__item pages-links--social">
-                <a class="navigation-link__item modal-link no-barba" href="http://facebook.com">facebook</a>
-              </li>
               <li class="pages-links__item">
-                <a class="navigation-link__item modal-link no-barba" href="#">instagram</a>
-              </li>
-              <li class="pages-links__item">
-                <a class="navigation-link__item modal-link no-barba" href="/bitrix/admin/">vkontakte</a>
+                <a class="navigation-link__item modal-link social-list" href="./6-0-contacts.html">social</a>
               </li>
               <li class="pages-links__item">
                 <a class="navigation-lang link-lang no-barba" href="#">рус</a>

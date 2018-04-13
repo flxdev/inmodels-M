@@ -21,9 +21,12 @@ block content
 							a(href="#") Open road map
 							h4 Contact
 							.contacts-wrap
-								a.link(href="tel:+375(29)6336069") +375 (29) 633 60 69
-								a.link(href="tel:+375(33)6006069") +375 (33) 600 60 69
-								a.link(href="mailto:info@inmodels.by") info@inmodels.by
+								a.link.no-barba(href="tel:+375(29)6336069") +375 (29) 633 60 69
+								a.link.no-barba(href="tel:+375(33)6006069") +375 (33) 600 60 69
+								a.link.no-barba(href="mailto:info@inmodels.by") info@inmodels.by
+								a.link.no-barba(href="https://ru-ru.facebook.com/inmodelsby/", target="_blank") facebook
+								a.link.no-barba(href="https://www.instagram.com/inmodelsby/", target="_blank") instagram
+								a.link.no-barba(href="https://vk.com/inmodelsby", target="_blank") vkontakte
 							a(href="7-0-Become-model.html").bttn.normal
 								span Become a model
 					.main.bg-white
@@ -38,8 +41,10 @@ block content
 												data-validation-error-msg="required field")
 											label.input-label(for="user-name") Name
 										.input-item.c2
-											input.input-field(type="tel"
-												id="user-tel")
+											input.input-field(
+												type="tel"
+												id="user-tel",
+												pattern="^\\+\\d*")
 											label.input-label(for="user-tel") Phone
 										.input-item
 											input.input-field(type="email"

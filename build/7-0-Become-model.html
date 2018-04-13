@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Become a model</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" maximum-scale="1.0" user-scalable="no">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/fav/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/fav/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/fav/favicon-16x16.png">
@@ -229,7 +229,7 @@
                                 </div>
                                 <div class="input-half">
                                   <div class="input-item">
-                                    <input class="input-field" type="number" id="model-age" pattern="[0-9]">
+                                    <input class="input-field" type="number" id="model-age" pattern="\d*">
                                     <label class="input-label" for="model-age">Age</label>
                                   </div>
                                 </div>
@@ -237,19 +237,19 @@
                               <div class="form-block__title">options</div>
                               <div class="input-row">
                                 <div class="input-item c4">
-                                  <input class="input-field" type="number" pattern="[0-9]*" id="model-height" data-validation="number" data-validation-error-msg="required field">
+                                  <input class="input-field" type="number" pattern="\d*" id="model-height" data-validation="number" data-validation-error-msg="required field">
                                   <label class="input-label" for="model-height">Height</label>
                                 </div>
                                 <div class="input-item c4">
-                                  <input class="input-field" type="number" pattern="[0-9]*" id="model-bust" data-validation="number" data-validation-error-msg="required field">
+                                  <input class="input-field" type="number" pattern="\d*" id="model-bust" data-validation="number" data-validation-error-msg="required field">
                                   <label class="input-label" for="model-bust">Bust</label>
                                 </div>
                                 <div class="input-item c4">
-                                  <input class="input-field" type="number" pattern="[0-9]*" id="model-waist" data-validation="number" data-validation-error-msg="required field">
+                                  <input class="input-field" type="number" pattern="\d*" id="model-waist" data-validation="number" data-validation-error-msg="required field">
                                   <label class="input-label" for="model-waist">Waist</label>
                                 </div>
                                 <div class="input-item c4">
-                                  <input class="input-field" type="number" pattern="[0-9]*" id="model-hips" data-validation="number" data-validation-error-msg="required field">
+                                  <input class="input-field" type="number" pattern="\d*" id="model-hips" data-validation="number" data-validation-error-msg="required field">
                                   <label class="input-label" for="model-hips">Hips</label>
                                 </div>
                                 <div class="input-item c2">
@@ -264,7 +264,7 @@
                               <div class="form-block__title">Сontacts</div>
                               <div class="input-row">
                                 <div class="input-item c2">
-                                  <input class="input-field" type="tel" id="model-phone" pattern="[0-9]*">
+                                  <input class="input-field" type="tel" id="model-phone" pattern="^\+\d*">
                                   <label class="input-label" for="model-phone">Phone</label>
                                 </div>
                                 <div class="input-item c2">
@@ -439,17 +439,19 @@
           <div class="modal-menu__l-1"></div>
           <div class="modal-menu__l-2"></div>
           <div class="modal-menu-inner">
-            <div class="pop-close closePopup">
-              <svg class="cross">
-                <use xlink:href="#cross"></use>
-              </svg>
+            <div class="modal-menu-head">
+              <div class="pop-close closePopup">
+                <svg class="cross">
+                  <use xlink:href="#cross"></use>
+                </svg>
+              </div>
+              <a class="link-logo" href="./home.html">
+                <svg class="logo">
+                  <use xlink:href="#logo"></use>
+                </svg>
+              </a>
             </div>
-            <a class="link-logo" href="./home.html">
-              <svg class="logo">
-                <use xlink:href="#logo"></use>
-              </svg>
-            </a>
-            <ul>
+            <ul class="pages-links__list">
               <li class="pages-links__item">
                 <a href="./4-0-agency.html">
                   <span class="modal-link">Agency</span>
@@ -476,14 +478,8 @@
               <li class="pages-links__item">
                 <a class="navigation-link__item modal-link business-request" href="./6-0-contacts.html">Business request</a>
               </li>
-              <li class="pages-links__item pages-links--social">
-                <a class="navigation-link__item modal-link no-barba" href="http://facebook.com">facebook</a>
-              </li>
               <li class="pages-links__item">
-                <a class="navigation-link__item modal-link no-barba" href="#">instagram</a>
-              </li>
-              <li class="pages-links__item">
-                <a class="navigation-link__item modal-link no-barba" href="/bitrix/admin/">vkontakte</a>
+                <a class="navigation-link__item modal-link social-list" href="./6-0-contacts.html">social</a>
               </li>
               <li class="pages-links__item">
                 <a class="navigation-lang link-lang no-barba" href="#">рус</a>

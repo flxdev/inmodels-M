@@ -66,12 +66,12 @@ export default function initPopUp() {
   //   console.log('3');
   // });
   
-  _this.conf.close_selector.off('click').on('click touchstart ', function() {
+  _this.conf.close_selector.off('click').on('click', function() {
     var _popup = $(this).parents(_this.c.popup);
     _this.f.closePopup(_popup);
   });
 
-  _this.b.open.off('click touchstart').on('click touchstart', function(e) {
+  _this.b.open.off('click').on('click', function(e) {
     e.preventDefault();
     if(!_this.conf.isAnimate) {
       var _b = $(this),

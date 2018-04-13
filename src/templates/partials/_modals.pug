@@ -4,12 +4,12 @@
 		.modal-menu__l-2
 		//- a(href="http://flxmd.by/" target="_blank").link-dev.no-barba Made in Flex.media
 		.modal-menu-inner
-			.pop-close.closePopup
-				+icon('cross')
-			a(href="./home.html").link-logo
-				+icon('logo')
-			
-			ul
+			.modal-menu-head
+				.pop-close.closePopup
+					+icon('cross')
+				a(href="./home.html").link-logo
+					+icon('logo')
+			ul.pages-links__list
 				li.pages-links__item
 					a(href="./4-0-agency.html") 
 						span.modal-link Agency
@@ -26,12 +26,8 @@
 					a.navigation-link__item.modal-link(href="./7-0-Become-model.html") Become a model
 				li.pages-links__item
 					a.navigation-link__item.modal-link.business-request(href="./6-0-contacts.html") Business request
-				li.pages-links__item.pages-links--social
-					a.navigation-link__item.modal-link.no-barba(href="http://facebook.com") facebook
 				li.pages-links__item
-					a.navigation-link__item.modal-link.no-barba(href="#") instagram
-				li.pages-links__item
-					a.navigation-link__item.modal-link.no-barba(href="/bitrix/admin/") vkontakte
+					a.navigation-link__item.modal-link.social-list(href="./6-0-contacts.html") social
 				li.pages-links__item
 					a.navigation-lang.link-lang.no-barba(href="#") рус
 	
