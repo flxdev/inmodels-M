@@ -14,11 +14,12 @@ block content
 				.block-content
 					.models-page
 						+search-block
-						.models-wrap.ajax-list
-							+models-item('models-1.jpg', 'Sasha Pronenko')
-							+models-item('models-3.jpg', 'Masha Pronenko')
-							+models-item('models-4.jpg', 'Anastasia Viartsiukhova')
-							+models-item('models-5.jpg', 'Sasha Grey')
-							.ajax-pager-wrap.lazy
-								.models-load
-									a.ajax-pager-link.no-barba(href="models-add.html", data-wrapper-class="models-wrap") loading...
+						.models-wrap-out
+							.models-wrap.ajax-list
+								+models-item('models-1.jpg', 'Sasha Pronenko')
+								+models-item('models-3.jpg', 'Masha Pronenko')
+								+models-item('models-4.jpg', 'Anastasia Viartsiukhova')
+								+models-item('models-5.jpg', 'Sasha Grey')
+								.ajax-pager-wrap.lazy
+									.models-load
+										a.ajax-pager-link.no-barba(href="models-add.html", data-wrapper-class="models-wrap") loading...

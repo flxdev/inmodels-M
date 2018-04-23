@@ -21,6 +21,10 @@ export default function initInnerSlider() {
       freeMode: true,
       freeModeMomentumBounce: false,
       pagination: false,
+      scrollbar: {
+        el: '.inner-slider-bar',
+        hide: false,
+      },
       watchSlidesVisibility: true,
       watchSlidesProgress: true,
       // slidesOffsetAfter: 500,

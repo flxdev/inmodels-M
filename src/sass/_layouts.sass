@@ -1,3 +1,6 @@
+// .page__content
+// 	width: 100%
+// 	overflow-x: hidden
 .block
 	width: 100%
 	min-height: 100vh
@@ -63,6 +66,7 @@
 		padding-bottom: 1px
 		width: 100%
 		padding: 0 40px
+		padding-left: 40px
 		box-sizing: border-box
 	&-grid
 		position: relative
@@ -90,7 +94,7 @@
 			width: 100%
 			padding-right: 40px
 			padding-left: 40px
-			padding-bottom: 40px
+			// padding-bottom: 40px
 			box-sizing: border-box
 			text-align: left
 			&-content
@@ -109,7 +113,7 @@
 		.main
 			width: 100%
 			height: 100vh
-			padding: 40px
+			// padding: 40px
 			box-sizing: border-box
 
 .bg-white
@@ -120,3 +124,13 @@
 	background-color: $bg-dark
 .bg-darken
 	background-color: $bg-darken
+
+.barba-container[data-namespace="gallery"],
+.barba-container[data-namespace="models"]
+	.block-content
+		padding-right: 0
+
+.barba-container[data-namespace="index"]
+	.logo-wrap a svg 
+		fill: $color
+	

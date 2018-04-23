@@ -73,6 +73,10 @@
 		left: 0
 		opacity: 0
 		transform: translateX(20px)
+		+r(450)
+			width: 80px
+		+r(400)
+			width: 70px
 		&__inner
 			width: 100%
 			padding-bottom: 100%
@@ -92,9 +96,6 @@
 			transform: none
 			visibility: visible
 			transition: opacity .3s 1.2s, transform .4s 1.2s, visibility 0s 1s
-		+r(480)
-			width: 21vw
-
 		
 	// &-lang
 	// 	display: block
@@ -160,8 +161,10 @@
 		&__item
 			font-size: 18px
 			color: $color
-			+r(400)
-				font-size: 15px
+			display: inline-block
+			+r(450)
+				margin-bottom: 5px
+				font-size: 16px
 		&.header-links
 			visibility: hidden
 			position: absolute

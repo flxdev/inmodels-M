@@ -278,8 +278,15 @@ var galleryNews = Barba.BaseView.extend({
     youtubeVideo();
     scrollAnimations();
     mobEventScroll();
+    $('.inner-wrap').addClass('active');
+    window.DOM.navBurger.addClass('hide-nav-burger');
+    window.DOM.navBack.addClass('view-nav-back');
   },
   onLeave: function() {
+    setTimeout(function() {
+      window.DOM.navBurger.removeClass('hide-nav-burger');
+      window.DOM.navBack.removeClass('view-nav-back');
+    }, 500);
   },
   onLeaveComplete: function() {
   }
@@ -355,6 +362,21 @@ var error = Barba.BaseView.extend({
   onLeaveComplete: function() {
   }
 });
+
+var error = Barba.BaseView.extend({
+  namespace: 'social',
+  onEnter: function() {
+  },
+  onEnterCompleted: function() {
+    scrollAnimations();
+    mobEventScroll();
+  },
+  onLeave: function() {
+  },
+  onLeaveComplete: function() {
+  }
+});
+
 $(document).ready(function() {
   index.init();
   about.init();

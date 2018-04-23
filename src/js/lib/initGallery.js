@@ -126,7 +126,7 @@ export default function initGallery() {
       direction: 'horizontal',
       loop: false,
       slidesPerView: 'auto',
-      spaceBetween: 30,
+      spaceBetween: 20,
       freeMode: true,
       scrollbar: {
         el: '.gallery-filter-bar',

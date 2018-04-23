@@ -42,6 +42,7 @@ export default function scrollAnimations() {
         el.classList.remove('animate');
       });
   }
+
   let g_link_footer = $('.gallery-news-footer');
   if(g_link_footer.length) {
     inView('.gallery-news-footer')
@@ -49,6 +50,18 @@ export default function scrollAnimations() {
         el.classList.add('animate');
       }).on('exit', function(el) {
         el.classList.remove('animate');
+      });
+  }
+
+  let social = $('.social-wrap');
+  if(social.length) {
+    inView('.social-wrap')
+      .on('enter', function(el) {
+        if(!el.done) {
+          el.classList.add('animate');
+        }
+      }).on('exit', function(el) {
+        el.done = true;
       });
   }
 
