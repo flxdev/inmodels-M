@@ -280,7 +280,7 @@ var galleryNews = Barba.BaseView.extend({
     mobEventScroll();
     $('.inner-wrap').addClass('active');
     window.DOM.navBurger.addClass('hide-nav-burger');
-    window.DOM.navBack.addClass('view-nav-back');
+    window.DOM.navBack.addClass('view-nav-back').attr('href', '/gallery/');
   },
   onLeave: function() {
     setTimeout(function() {
@@ -338,7 +338,7 @@ var innerModel = Barba.BaseView.extend({
     mobEventScroll();
     $('.inner-wrap').addClass('active');
     window.DOM.navBurger.addClass('hide-nav-burger');
-    window.DOM.navBack.addClass('view-nav-back');
+    window.DOM.navBack.addClass('view-nav-back').attr('href', '/models/');
   },
   onLeave: function() {
     setTimeout(function() {
@@ -356,24 +356,13 @@ var error = Barba.BaseView.extend({
   onEnter: function() {
   },
   onEnterCompleted: function() {
-  },
-  onLeave: function() {
-  },
-  onLeaveComplete: function() {
-  }
-});
-
-var error = Barba.BaseView.extend({
-  namespace: 'social',
-  onEnter: function() {
-  },
-  onEnterCompleted: function() {
     scrollAnimations();
     mobEventScroll();
   },
   onLeave: function() {
   },
   onLeaveComplete: function() {
+
   }
 });
 

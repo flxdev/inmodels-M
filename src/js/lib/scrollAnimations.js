@@ -58,7 +58,9 @@ export default function scrollAnimations() {
     inView('.social-wrap')
       .on('enter', function(el) {
         if(!el.done) {
-          el.classList.add('animate');
+          setTimeout(function() {
+            el.classList.add('animate');
+          }, 50);
         }
       }).on('exit', function(el) {
         el.done = true;
