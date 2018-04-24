@@ -138,7 +138,7 @@ export default function setInputFocus() {
     this.style.height = (this.scrollHeight) + 'px';
   });
 
-  $('input[type="tel"]').on('click touchstart', function() {
+  $('input[type="tel"]').on('click', function() {
     let i_val =  $(this).val();
     if(!i_val) {
       $(this).val('+');
