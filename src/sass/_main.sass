@@ -820,10 +820,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete.lg-current 
 
 
 .social-wrap
-	position: fixed
-	top: 50%
-	left: 50%
-	transform: translate(-50%, -50%)
 	&-links
 		text-align: center
 	&__item
@@ -847,6 +843,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete.lg-current 
 				transform: none
 				transition: opacity .3s, transform .4s
 				transition-delay: $i /4 +s
+				
+body.social-fix
+	position: fixed
+
 
 .error-logo
 	position: fixed

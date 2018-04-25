@@ -368,6 +368,11 @@ var error = Barba.BaseView.extend({
   onEnterCompleted: function() {
     scrollAnimations();
     mobEventScroll();
+    let v = $('.social-wrap');
+    if(v.length) {
+      window.DOM.body.addClass('social-fix');
+    }
+
   },
   onLeave: function() {
   },
