@@ -219,6 +219,10 @@
 	padding-bottom: 40px
 	&__title
 		font-size: 50px
+		+r(450)
+			font-size: 38px
+		+r(350)
+			word-break: break-word
 	&__footer
 		text-align: center
 		width: 100%
@@ -816,15 +820,19 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete.lg-current 
 
 
 .social-wrap
+	position: fixed
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
 	&-links
 		text-align: center
 	&__item
 		display: block
 		color: $link-color
-		margin-bottom: 25px
-		font-size: 30px
+		margin-bottom: 20px
+		font-size: 26px
 		font-weight: 300
-		line-height: 1.4
+		line-height: 1.62
 		opacity: 0
 		z-index: 1
 		transform: translateY(20px)

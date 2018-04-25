@@ -280,7 +280,12 @@ var galleryNews = Barba.BaseView.extend({
     mobEventScroll();
     $('.inner-wrap').addClass('active');
     window.DOM.navBurger.addClass('hide-nav-burger');
-    window.DOM.navBack.addClass('view-nav-back').attr('href', '/gallery/');
+    if(window.location.href.indexOf('/ru/') > 1) {
+      window.DOM.navBack.addClass('view-nav-back').attr('href', '/ru/gallery/');
+    } else{
+      window.DOM.navBack.addClass('view-nav-back').attr('href', '/gallery/');
+    }
+    
   },
   onLeave: function() {
     setTimeout(function() {
@@ -338,7 +343,12 @@ var innerModel = Barba.BaseView.extend({
     mobEventScroll();
     $('.inner-wrap').addClass('active');
     window.DOM.navBurger.addClass('hide-nav-burger');
-    window.DOM.navBack.addClass('view-nav-back').attr('href', '/models/');
+    if(window.location.href.indexOf('/ru/') > 1) {
+      window.DOM.navBack.addClass('view-nav-back').attr('href', '/ru/models/');
+    } else {
+      window.DOM.navBack.addClass('view-nav-back').attr('href', '/models/');
+    }
+    
   },
   onLeave: function() {
     setTimeout(function() {
