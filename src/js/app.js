@@ -375,6 +375,7 @@ var error = Barba.BaseView.extend({
 
   },
   onLeave: function() {
+    window.DOM.body.removeClass('social-fix');
   },
   onLeaveComplete: function() {
 
