@@ -328,6 +328,9 @@ var contacts = Barba.BaseView.extend({
     setInputFocus();
     scrollAnimations();
     mobEventScroll();
+    if($('.block-success').length) {
+      $('html, body').animate({scrollTop: $('.block-success').offset().top}, 600);
+    }
   },
   onLeaveComplete: function() {
   }
