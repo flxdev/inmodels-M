@@ -137,7 +137,7 @@ var BarbaWitget = {
               delay: this.delay,
               className: '+=page-load'
             })
-            .to(window.DOM.pageLoaderW, 0.5, {
+            .to(window.DOM.pageLoaderW, 0.6, {
               scaleY: 1,
             })
             .set(window.DOM.menu, {
